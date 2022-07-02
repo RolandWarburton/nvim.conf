@@ -1,2 +1,5 @@
 certbot
 nginx
+neovim
+nvim
+config
