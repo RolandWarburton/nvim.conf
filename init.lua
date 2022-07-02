@@ -303,58 +303,20 @@ local sources = {
       return { "--no-exit", "--output", "JSON", "--ext", ".", "--config", home .. "/.config/.vale.ini", vim.fn.expand('%:p')}
     end
   }),
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
   null_ls.builtins.formatting.gofmt.with({
     _opts = {
       command = "gofmt -s",
       to_stdin = true
     }
   }),
+  --  https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
   null_ls.builtins.diagnostics.golangci_lint.with({
     args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
   })
 }
 
--- things that can be formatted
-local formatting ={
-  format.eslint_d
-}
-
 null_ls.setup({
   debug = true,
   sources = sources,
-  -- formatting = formatting
 })
-
-
--- local util = require 'color.util'
--- local theme = require 'color.theme'
-
--- vim.o.background = 'dark'
--- vim.g.colors_name = 'darkplus'
-
--- util.load(theme)
-
--- function _G.put(...)
---   local objects = {}
---   for i = 1, select('#', ...) do
---     local v = select(i, ...)
---     table.insert(objects, vim.inspect(v))
---   end
-
---   print(table.concat(objects, '\n'))
---   return ...
--- end
-
--- vim.highlight.creatvim.cmd('hi SpecialKey=Red')
-
-
--- vim.cmd('highlight RedundantSpaces ctermbg=red guibg=red')
--- vim.cmd('match RedundantSpaces \/\s\+$/')
--- vim.opt.list = true
--- vim.cmd('set listchars+=trail:~')
--- vim.cmd('hi SpecialKey=Red')
--- vim.cmd('set listchar+=space:␣')
-
--- QOL for
-
--- open splits like tmux
