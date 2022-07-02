@@ -85,6 +85,7 @@ return packer.startup(function(use, use_rocks)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- git diff for neogit
   use { 'mhinz/vim-signify' } -- git gutter
   use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'numToStr/Comment.nvim' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

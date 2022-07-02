@@ -1,8 +1,11 @@
+-- color scheme
+vim.cmd [[colorscheme darkplus]]
+
 require('core.settings')
 require('core.trailing')
 require('core.space')
-require('core.color')
 require('keybindings.general')
+require('keybindings.comment')
 require('plugins')
 require('lsp.lsp')
 require('neovide.config')
@@ -10,6 +13,7 @@ require('core.statusline')
 require('globals.globals')
 require('documentation.loadDocumentation')
 require('extensions.autopairs')
+require('extensions.comment')
 require('extensions.completion')
 require('extensions.neoclip')
 require('extensions.neogit')
@@ -17,6 +21,4 @@ require('extensions.null-ls')
 require('extensions.nvimTree')
 require('extensions.telescope')
 require('extensions.treesitter')
-
--- color scheme
-vim.cmd [[colorscheme darkplus]]
+require('core.color')
