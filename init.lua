@@ -302,6 +302,15 @@ local sources = {
     args = function(params)
       return { "--no-exit", "--output", "JSON", "--ext", ".", "--config", home .. "/.config/.vale.ini", vim.fn.expand('%:p')}
     end
+  }),
+  null_ls.builtins.formatting.gofmt.with({
+    _opts = {
+      command = "gofmt -s",
+      to_stdin = true
+    }
+  }),
+  null_ls.builtins.diagnostics.golangci_lint.with({
+    args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
   })
 }
 

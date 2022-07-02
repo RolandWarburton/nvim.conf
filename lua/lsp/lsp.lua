@@ -4,7 +4,7 @@ vim.lsp.set_log_level("debug")
 -- we need this for lsp servers
 local root_pattern = require("lspconfig").util.root_pattern
 
-local nvim_lsp = require('lspconfig')
+local lsp_config = require('lspconfig')
 local servers = {'tsserver'}
 
 -- Mappings.
@@ -85,6 +85,21 @@ require 'lspconfig'.tsserver.setup {
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   init_options = { hostInfo = "neovim" },
   root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+}
+
+-- GOLANG
+lsp_config.gopls.setup {
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = lsp_config.util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
 }
 
 -- HTML
