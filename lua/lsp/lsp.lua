@@ -30,12 +30,11 @@ end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-
   if client.supports_method("textDocument/formatting") then
-    -- if you want to set up formatting on save, you can use this as a callback
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    -- this will run before on every buffer (file) save
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
@@ -71,10 +70,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
--- this hooks nvim-csp in with nvim-lsp
+-- this hooks nvim-cmp in with nvim-lsp
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Typescript
+---------------------------------------------------------------------------------------------------
+-- TYPESCRIPT -------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 -- npm i -g typescript typescript-language-server eslint prettier
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tsserver
 -- https://github.com/typescript-language-server/typescript-language-server
@@ -87,7 +88,9 @@ require 'lspconfig'.tsserver.setup {
   root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
 
--- GOLANG
+---------------------------------------------------------------------------------------------------
+-- GOLANG -----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 lsp_config.gopls.setup {
   cmd = {"gopls", "serve"},
@@ -103,7 +106,9 @@ lsp_config.gopls.setup {
   },
 }
 
--- HTML
+---------------------------------------------------------------------------------------------------
+-- HTML -------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 -- npm i -g vscode-langservers-extracted
 require'lspconfig'.html.setup {
   capabilities = capabilities,
@@ -118,11 +123,11 @@ require'lspconfig'.html.setup {
   }
 }
 
--- USER = vim.fn/expand('$USER')
-USER = "roland"
+---------------------------------------------------------------------------------------------------
+-- LUA --------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+USER = vim.fn.expand('$USER')
 local lsp_root_path = "/home/" .. USER .. "/.lsp-servers"
-
-local lua_root_path = lsp_root_path .. "/lua-language-server"
 local lua_binary_path = lsp_root_path .. "/lua-language-server/bin/lua-language-server"
 
 require'lspconfig'.sumneko_lua.setup {
