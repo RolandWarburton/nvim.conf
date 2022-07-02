@@ -88,3 +88,34 @@ Then run `vale --config $HOME/.config/.vale.ini sync`
 
 The last tested working version of vale is 2.18.0
 
+===============================================================================
+7. golang                                              *lsp_install-golang*
+
+Due to changes to `go get` and old debian repos,
+you need to do a small dance to get golang working.
+
+Download [golang](https://go.dev/doc/install).
+
+Extract golang.
+
+```none
+tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz
+```
+
+Ensure the following options are set (verify through `go env`).
+
+```none
+export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin
+```
+
+Formatting is provided by default through gofmt which comes with golang.
+See the `/usr/local/go/bin/gofmt`.
+
+Linting is provided by golangci-lint. It needs to be isntalled.
+
+```none
+curl -sSfL \
+https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
+sh -s -- -b $(go env GOPATH)/bin v1.46.2
+```
