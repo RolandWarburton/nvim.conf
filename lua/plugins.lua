@@ -1,3 +1,6 @@
+-- allow for the use of :PackerRocks commands
+require'packer.luarocks'.install_commands()
+
 local fn = vim.fn
 
 -- typically this is in ~/.local/share/nvim
@@ -23,13 +26,12 @@ if not status_ok then
 end
 
 -- Install your plugins here
-return packer.startup(function(use)
-  -- My plugins here
+return packer.startup(function(use, use_rocks)
+  use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used ny lots of plugins
   use {
     "wbthomason/packer.nvim",
     requires = { {'nvim-lua/plenary.nvim'} }
-  }-- Have packer manage itself
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  } -- Have packer manage itself
   use "neovim/nvim-lspconfig" -- enable LSP
   use "martinsione/darkplus.nvim" -- color scheme
   use "kyazdani42/nvim-web-devicons" -- for file icons
