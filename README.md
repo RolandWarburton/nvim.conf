@@ -1,6 +1,6 @@
 # NVIM Conf
 
-![screenshot](/media/screenshot1)
+![screenshot](/media/screenshot1.png)
 
 Configurations for nvim.
 
