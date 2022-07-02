@@ -88,6 +88,7 @@ require 'lspconfig'.tsserver.setup {
 }
 
 -- GOLANG
+-- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 lsp_config.gopls.setup {
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
