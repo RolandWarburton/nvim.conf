@@ -5,6 +5,9 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+-- make tabs 2 spaces long
+vim.opt.tabstop = 2
+
 -- relative number lines
 vim.opt.relativenumber = true
 
