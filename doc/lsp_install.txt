@@ -44,7 +44,7 @@ sources:
 - https://github.com/hrsh7th/vscode-langservers-extracted
 
 ===============================================================================
-5. markdown                                            *lsp_install-html*
+5. markdown                                            *lsp_install-markdown*
 
 npm i -g markdownlint markdownlint-cli
 
