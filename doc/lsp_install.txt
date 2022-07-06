@@ -91,7 +91,7 @@ The last tested working version of vale is 2.18.0
 7. golang                                              *lsp_install-golang*
 
 Due to changes to `go get` and old debian repos,
-you need to do a small dance to get golang working.
+you need to do a small dance to get golang working (installing it manually).
 
 Download [golang](https://go.dev/doc/install).
 
@@ -106,6 +106,13 @@ Ensure the following options are set (verify through `go env`).
 ```none
 export GOROOT=$HOME/.local/go
 export PATH=$PATH:/$GOROOT/bin
+```
+
+The language server can be installed like so.
+Ensure that you are not in a go project directory and run this command.
+
+```none
+go install golang.org/x/tools/gopls@latest
 ```
 
 Formatting is provided by default through gofmt which comes with golang.
