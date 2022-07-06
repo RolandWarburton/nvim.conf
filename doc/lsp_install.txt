@@ -104,8 +104,8 @@ tar -C $HOME/.local -xzf go1.18.3.linux-amd64.tar.gz
 Ensure the following options are set (verify through `go env`).
 
 ```none
-export GOROOT=$HOME/.local/go
-export PATH=$PATH:/$GOROOT/bin
+export GOPATH=$HOME/.local/go/pkg
+export PATH=$PATH:/$GOPATH/bin
 ```
 
 The language server can be installed like so.
