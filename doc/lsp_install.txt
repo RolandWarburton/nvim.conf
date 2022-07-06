@@ -109,7 +109,7 @@ export PATH=$PATH:/$GOROOT/bin
 ```
 
 Formatting is provided by default through gofmt which comes with golang.
-See the `/usr/local/go/bin/gofmt`.
+See the `$GOROOT/gofmt`.
 
 Linting is provided by golangci-lint. It needs to be isntalled.
 
