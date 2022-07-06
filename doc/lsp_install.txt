@@ -30,7 +30,6 @@ sources:
 - https://github.com/typescript-language-server/typescript-language-server
 - https://github.com/mantoni/eslint_d.js
 - https://github.com/fsouza/prettierd
- 
 
 ===============================================================================
 2. html                                                *lsp_install-html*
@@ -59,7 +58,7 @@ sources:
 - https://github.com/igorshubovych/markdownlint-cli
 
 ===============================================================================
-6. vale                                                *lsp_install-html*
+6. vale                                                *lsp_install-vale*
 
 Install vale using this command to install it.
 
@@ -99,14 +98,14 @@ Download [golang](https://go.dev/doc/install).
 Extract golang.
 
 ```none
-tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz
+tar -C $HOME/.local -xzf go1.18.3.linux-amd64.tar.gz
 ```
 
 Ensure the following options are set (verify through `go env`).
 
 ```none
-export GO111MODULE=on
-export PATH=$PATH:/usr/local/go/bin
+export GOROOT=$HOME/.local/go
+export PATH=$PATH:/$GOROOT/bin
 ```
 
 Formatting is provided by default through gofmt which comes with golang.
@@ -117,5 +116,5 @@ Linting is provided by golangci-lint. It needs to be isntalled.
 ```none
 curl -sSfL \
 https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
-sh -s -- -b $(go env GOPATH)/bin v1.46.2
+sh -s -- -b $(go env GOROOT)/bin v1.46.2
 ```
