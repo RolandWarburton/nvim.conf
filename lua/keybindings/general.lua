@@ -104,3 +104,6 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', ':lua Toggle_format_on_sa
 
 -- create a custom command to rename symbols
 vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>', {})
+
+-- create a qa! alias
+map('n', '<Leader>qq', ':qa<cr>', opts)
