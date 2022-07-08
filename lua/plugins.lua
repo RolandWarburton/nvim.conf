@@ -61,7 +61,7 @@ return packer.startup(function(use, use_rocks)
   use {'hrsh7th/cmp-path'} -- completions for files
   use {'hrsh7th/cmp-nvim-lua'} -- neovim lua completions
   use {'hrsh7th/cmp-nvim-lsp'} -- completions from lsp server
-  use {'hrsh7th/cmp-nvim-lsp-signature-help'} -- completions for function signatures
+  use {'ray-x/lsp_signature.nvim'}
   use {
     'L3MON4D3/LuaSnip',
     config = function()

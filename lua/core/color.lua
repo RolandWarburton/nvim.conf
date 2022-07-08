@@ -27,3 +27,6 @@ vim.highlight.create("StatusLineNC", { guifg = '#848484' })
 -- Apply the basic terminal colors for the theme
 -- there are 15 colors, plus "terminal_color_foreground" and "terminal_color_background"
 vim.g.terminal_color_4 = '#569CD6'
+
+-- ray-x/lsp_signature provided highlight group for param highlighting
+vim.highlight.create("LspSignatureActiveParameter", { guifg = '#AF5FD7' })

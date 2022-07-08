@@ -30,6 +30,10 @@ end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+
+  -- attach the lsp_signature plugin for param help
+  require'lsp_signature'.on_attach()
+
   -- run an auto command to create keybindings
   vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
 
