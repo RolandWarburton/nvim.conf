@@ -1,4 +1,3 @@
-
 -- load in snippet plugin packs (mainly just rafamadriz/friendly-snippets for now)
 -- other snippets can be defined by the user
 require("luasnip.loaders.from_vscode").lazy_load()
