@@ -8,8 +8,8 @@ vim.opt.completeopt:remove("noinsert")
 vim.opt.completeopt:remove("menuone")
 vim.opt.completeopt:append("preview") -- Doesn't reliably close
 
-local cmp, err = pcall(require, 'cmp')
-if err then
+local cmp = require('cmp')
+if not type(cmp) == "table" then
   vim.api.nvim_err_writeln('CMP failed to load')
   return
 end
