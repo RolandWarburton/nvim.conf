@@ -63,10 +63,10 @@ cmp.setup({
 
   -- the different sources for completion
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' }, -- from the language server
-    { name = 'luasnip' }, -- from snippets
+    { name = 'nvim_lsp', max_item_count = 8 }, -- from the language server
+    { name = 'luasnip', max_item_count = 128 }, -- from snippets
     { name = 'buffer' }, -- from keywords in the buffer
-    { name = 'nvim_lsp_signature_help' }, -- enables showing signature help
-    { name = 'path' }, -- completing file paths
+    { name = 'nvim_lsp_signature_help', max_item_count = 16 }, -- enables showing signature help
+    { name = 'path', max_item_count = 16 }, -- completing file paths
   })
 })
