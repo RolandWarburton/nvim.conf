@@ -38,6 +38,14 @@ local on_attach = function(client, bufnr)
   -- attach the lsp_signature plugin for param help
   require'lsp_signature'.on_attach()
 
+
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false,
+      signs = true
+    }
+  )
+
   -- run an auto command to create keybindings
   vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
 
