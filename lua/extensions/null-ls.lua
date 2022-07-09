@@ -3,9 +3,11 @@
 -- you can check if you have a linter installed for a language by running
 -- (for example to check eslint) :echo executable('eslint')
 -- 1 indicates it is present
-local null_ls = require'null-ls';
-local formatting = null_ls.builtins.formatting;
-local diagnostics = null_ls.builtins.diagnostics;
+local null_ls = require'null-ls'
+
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 
 local sources = {
   -------------------------------------------------------------------------------------------------
@@ -65,7 +67,11 @@ local sources = {
   --  https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
   diagnostics.golangci_lint.with({
     args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
-  })
+  }),
+  -------------------------------------------------------------------------------------------------
+  -- GITSIGNS -------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------
+  code_actions.gitsigns,
 }
 
 null_ls.setup({
