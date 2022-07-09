@@ -39,7 +39,11 @@ local sources = {
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#markdownlint=
   diagnostics.markdownlint.with({
     args = function(params)
-      return {"--stdin", "--config", "/home/roland/.markdownlint.json"}
+      return {
+        "--stdin",
+        "--config",
+        require'os'.getenv('HOME') .. "/.config/nvim/conf/markdownlint.json"
+      }
     end
   }),
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
