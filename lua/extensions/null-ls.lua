@@ -54,14 +54,16 @@ local sources = {
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vale
   diagnostics.vale.with({
     args = function(params)
-      return { "--no-exit",
+      return {
+        "--no-exit",
         "--output",
         "JSON",
         "--ext",
         ".",
         "--config",
         require'os'.getenv('HOME') .. "/.config/nvim/conf/vale.ini",
-        vim.fn.expand('%:p')} -- prints the absolute file path
+        vim.fn.expand('%:p') -- prints the absolute file path
+      }
     end
   }),
   -------------------------------------------------------------------------------------------------
