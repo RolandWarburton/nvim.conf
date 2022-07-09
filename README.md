@@ -14,4 +14,3 @@ Read `:help lsp_install` for information.
 - [ ] Basic markdown config (lint)
 - [ ] Configure a rich markdown writing environment (lint, prose, and dictionary)
 - [ ] Vale bootstrap script
-
