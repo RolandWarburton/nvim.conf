@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
   local _, err = pcall(require, 'trouble')
   if err then
     vim.api.nvim_create_autocmd(
-      { 'InsertLeave' },
+      { 'TextChanged', 'InsertLeave' },
       {
         pattern = '*',
         callback = function()

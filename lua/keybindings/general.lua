@@ -107,3 +107,6 @@ vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>'
 
 -- create a qa! alias
 map('n', '<Leader>qq', ':qa<cr>', opts)
+
+-- create a custom command to open the diagnostic window
+vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist()<cr>', {})
