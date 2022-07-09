@@ -8,7 +8,6 @@ vim.lsp.set_log_level("debug")
 local root_pattern = require("lspconfig").util.root_pattern
 
 local lsp_config = require('lspconfig')
-local servers = {'tsserver'}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
