@@ -37,6 +37,20 @@ local on_attach = function(client, bufnr)
   -- attach the lsp_signature plugin for param help
   require'lsp_signature'.on_attach()
 
+  -- this is a backup for seeing diagnostics if trouble is not installed
+  local _, err = pcall(require, 'trouble')
+  if err then
+    vim.api.nvim_create_autocmd(
+      { 'InsertLeave' },
+      {
+        pattern = '*',
+        callback = function()
+          -- refresh quick fix list
+          vim.schedule(function() vim.diagnostic.setloclist({open = false}) end)
+        end,
+      }
+    )
+  end
 
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
