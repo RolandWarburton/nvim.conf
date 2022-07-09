@@ -8,7 +8,11 @@ vim.opt.completeopt:remove("noinsert")
 vim.opt.completeopt:remove("menuone")
 vim.opt.completeopt:append("preview") -- Doesn't reliably close
 
-local cmp = require'cmp'
+local cmp, err = pcall(require, 'cmp')
+if err then
+  vim.api.nvim_err_writeln('CMP failed to load')
+  return
+end
 local luasnip = require'luasnip'
 
 -- changes the behaviour about the completion popups
