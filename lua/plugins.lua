@@ -83,7 +83,7 @@ return packer.startup(function(use, use_rocks)
   }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' } -- git intergrations
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- git diff for neogit
-  use { 'mhinz/vim-signify' } -- git gutter
+  use { 'lewis6991/gitsigns.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'numToStr/Comment.nvim' }
   -- Automatically set up your configuration after cloning packer.nvim
