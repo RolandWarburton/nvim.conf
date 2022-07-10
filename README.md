@@ -13,3 +13,4 @@ Read `:help lsp_install` for information.
 - [x] Basic nvim config for programming in JS/TS
 - [ ] Basic markdown config (lint)
 - [ ] Configure a rich markdown writing environment (lint, prose, and dictionary)
+- [ ] Debugging support (learn how to use nvim-dap)
