@@ -14,6 +14,7 @@ vim.opt.relativenumber = true
 -- shows better messages
 vim.opt.cmdheight = 1
 
+-- place a column 100 characters out
 vim.opt.colorcolumn = '100'
 
 -- enable native spell checking
