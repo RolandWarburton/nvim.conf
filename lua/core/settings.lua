@@ -16,6 +16,9 @@ vim.opt.cmdheight = 1
 
 vim.opt.colorcolumn = '100'
 
+-- enable native spell checking
+vim.cmd('set spell spelllang=en_us')
+
 -- Fix comments (see :h fo-table and :h formatoptions)
 -- -= is subtracting the following values
 -- c -> auto-wrap comments using textwidth
