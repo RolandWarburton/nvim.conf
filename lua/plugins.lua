@@ -27,7 +27,7 @@ end
 
 -- Install your plugins here
 return packer.startup(function(use, use_rocks)
-  use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used ny lots of plugins
+  use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used in lots of plugins
   use {
     "wbthomason/packer.nvim",
     requires = { {'nvim-lua/plenary.nvim'} }
