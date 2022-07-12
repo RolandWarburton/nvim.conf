@@ -1,7 +1,7 @@
 -- SHOW SPACES
 
 -- method one
--- vim.highlight.create("Spaces", { ctermbg = "red", guibg = "red" })
+-- vim.api.nvim_set_hl(0, "Spaces", { default = true, fg = "#ff0000", bg = "#ff0000" })
 -- vim.cmd([[match TrailingSpaces /\s/]])
 
 -- method two
