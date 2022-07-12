@@ -13,7 +13,6 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { default = true, fg = '#ff0000' })
 
 -- color the tabs
-vim.api.nvim_set_hl(0, "TrailingSpaces", { default = false, fg = "#ff0000", bg = "#ff0000" })
 vim.api.nvim_set_hl(0, "TabLineSel", { default = true, fg='#D4D4D4', bg='#9D6BCD'})
 vim.api.nvim_set_hl(0, "TabLine", { default = true, fg='#808080', bg='#1E1E1E'})
 vim.api.nvim_set_hl(0, "TabLineFill", { default = true, bg = '#1E1E1E', fg='#1E1E1E'})
