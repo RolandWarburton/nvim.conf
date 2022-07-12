@@ -4,7 +4,7 @@
 -- vim.cmd('set listchars-=trail:1')
 
 -- new method (use a highlight group
-vim.highlight.create("TrailingSpaces", { ctermbg = "red", guibg = "red" })
+vim.api.nvim_set_hl(0, "TrailingSpaces", { default = false, fg = "#ff0000", bg = "#ff0000" })
 
 -- now apply the highlight group match
 -- the use of [[]] quotes is to allow for this regex to be used in a string

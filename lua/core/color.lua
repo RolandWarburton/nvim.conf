@@ -5,28 +5,29 @@ vim.cmd('hi Nontext ctermfg=\'Gray\'')
 vim.cmd('hi ColorColumn ctermbg=\'Gray\'')
 
 -- use for EOL, space
-vim.highlight.create("SpecialKey", { ctermbg = "Gray", ctermfg = 07 })
+vim.api.nvim_set_hl(0, "SpecialKey", { default = true, bg = "Gray", fg = '#ff0000' })
 
 vim.opt.termguicolors = true
 
 -- vim lsp error and warning inline text
-vim.highlight.create("DiagnosticVirtualTextError", { guifg = '#ff0000' })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { default = true, fg = '#ff0000' })
 
 -- color the tabs
-vim.highlight.create("TabLineSel", { gui = 'none', cterm = 'none', guifg='#D4D4D4', guibg='#9D6BCD'})
-vim.highlight.create("TabLine", { cterm = 'none', guifg='#808080', gui = 'none', guibg='#1E1E1E'})
-vim.highlight.create("TabLineFill", { guibg = '#1E1E1E', guifg='#1E1E1E'})
-vim.highlight.create("Title", { gui='none', cterm='none', guibg = 'none', guifg='#D4D4D4'})
+vim.api.nvim_set_hl(0, "TrailingSpaces", { default = false, fg = "#ff0000", bg = "#ff0000" })
+vim.api.nvim_set_hl(0, "TabLineSel", { default = true, fg='#D4D4D4', bg='#9D6BCD'})
+vim.api.nvim_set_hl(0, "TabLine", { default = true, fg='#808080', bg='#1E1E1E'})
+vim.api.nvim_set_hl(0, "TabLineFill", { default = true, bg = '#1E1E1E', fg='#1E1E1E'})
+vim.api.nvim_set_hl(0, "Title", { default = true, bg = 'none', fg='#D4D4D4'})
 
 -- the active status line
-vim.highlight.create("StatusLine", { guifg = '#9D6BCD' })
+vim.api.nvim_set_hl(0, "StatusLine", { default = false, fg = '#1E1E1E', bg = '#9D6BCD' })
 
 -- the inactive status line
-vim.highlight.create("StatusLineNC", { guifg = '#848484' })
+vim.api.nvim_set_hl(0, "StatusLineNC", { default = false, bg = '#3E2A52', fg = '#D4D4D4' })
 
 -- Apply the basic terminal colors for the theme
 -- there are 15 colors, plus "terminal_color_foreground" and "terminal_color_background"
 vim.g.terminal_color_4 = '#569CD6'
 
 -- ray-x/lsp_signature provided highlight group for param highlighting
-vim.highlight.create("LspSignatureActiveParameter", { guifg = '#AF5FD7' })
+vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { default = true, fg = '#AF5FD7' })

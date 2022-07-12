@@ -60,8 +60,8 @@ vim.opt.mouse = 'a'
 
 -- highlight the current line
 vim.opt.cursorline = true
-vim.highlight.create("CursorLine", {cterm='NONE', ctermbg='8', ctermfg='15'})   -- text row
-vim.highlight.create("CursorLineNR", {cterm='NONE', ctermbg='8', ctermfg='15'}) -- the number row
+vim.api.nvim_set_hl(0, "CursorLine", {default=true, bg='#ffffff', fg='#ffffff'})   -- text row
+vim.api.nvim_set_hl(0, "CursorLineNR", {default=true, bg='#ffffff', fg='#ffffff'})   -- text row
 
 -- disable the close (X) button on vim tab line
 vim.cmd('set guioptions-=e')
