@@ -116,3 +116,9 @@ vim.api.nvim_create_user_command('GitOpenDiff', ':Gitsigns diffthis<cr>', {})
 
 -- create a custom command to open the diagnostic window
 vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist()<cr>', {})
+
+-- nvim dap keybinds
+map('n', '<F5>', ':lua require"dap".continue()<cr>', opts)
+
+-- nvim dap set breakpoint
+map('n', '<Leader>db', ':lua require"dap".toggle_breakpoint()<cr>', opts)

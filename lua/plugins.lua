@@ -87,6 +87,8 @@ return packer.startup(function(use, use_rocks)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'numToStr/Comment.nvim' }
   use { 'lewis6991/spellsitter.nvim' }
+  use { 'mfussenegger/nvim-dap' }
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
