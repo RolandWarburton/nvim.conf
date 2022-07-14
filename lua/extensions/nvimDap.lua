@@ -11,16 +11,17 @@ dap.adapters.node2 = {
 }
 
 dap.configurations.javascript = {
-  -- this doesn't work that great (or at all)
+  -- this doesn't work that great
   {
     name = 'Launch',
     type = 'node2',
     request = 'launch',
-    -- program = '${file}',
+    program = '${file}',
     cwd = vim.fn.getcwd(),
-    -- sourceMaps = true,
+    sourceMaps = true,
     protocol = 'inspector',
     console = 'integratedTerminal',
+    outFiles = {"${workspaceFolder}/dist/**/*.js"},
   },
   -- this works at the moment if you manually start the built javascript
   -- For this to work you need to make sure the node process is started with the `--inspect` flag.
