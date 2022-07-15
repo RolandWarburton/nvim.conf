@@ -15,6 +15,7 @@ CONTENTS
     4. json..............................................|lsp_install-json|
     5. markdown..........................................|lsp_install-markdown|
     6. vale..............................................|lsp_install-vale|
+    7. vale..............................................|lsp_install-golangolang|
 
 ===============================================================================
 1. typescipt                                           *lsp_install-typescript*
@@ -106,7 +107,7 @@ Ensure the following options are set (verify through `go env`).
 
 ```none
 export GOPATH=$HOME/.local/go/pkg
-export PATH=$PATH:/$GOPATH/bin
+export PATH=$PATH:/$HOME/.local/go/bin
 ```
 
 The language server can be installed like so.
@@ -117,9 +118,9 @@ go install golang.org/x/tools/gopls@latest
 ```
 
 Formatting is provided by default through gofmt which comes with golang.
-See the `$GOROOT/gofmt`.
+See the `$HOME/.local/go/bin/gofmt`.
 
-Linting is provided by golangci-lint. It needs to be isntalled.
+Linting is provided by golangci-lint. It needs to be installed.
 
 ```none
 curl -sSfL \
