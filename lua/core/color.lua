@@ -13,10 +13,11 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { default = true, fg = '#ff0000' })
 
 -- color the tabs
-vim.api.nvim_set_hl(0, "TabLineSel", { default = true, fg='#D4D4D4', bg='#9D6BCD'})
-vim.api.nvim_set_hl(0, "TabLine", { default = true, fg='#808080', bg='#1E1E1E'})
-vim.api.nvim_set_hl(0, "TabLineFill", { default = true, bg = '#1E1E1E', fg='#1E1E1E'})
-vim.api.nvim_set_hl(0, "Title", { default = true, bg = 'none', fg='#D4D4D4'})
+vim.api.nvim_set_hl(0, 'TabLine', { bg = '#100e23', fg = '#565575' }) -- tab itself
+vim.api.nvim_set_hl(0, 'TabLineSel', { bg = '#272638', fg = '#9D6BCD' })
+vim.api.nvim_set_hl(0, 'TabLineFill', { bg = '#100e23', fg = '#272638' }) -- background behind tabs
+vim.api.nvim_set_hl(0, 'TabLineFillInvert', { bg = '#272638', fg = '#100e23' })
+vim.api.nvim_set_hl(0, 'TabLineWarn', { bg = '#272638', fg = '#ffb378' })
 
 -- the active status line
 vim.api.nvim_set_hl(0, "StatusLine", { default = false, fg = '#1E1E1E', bg = '#9D6BCD' })
