@@ -69,17 +69,21 @@ local sources = {
   -------------------------------------------------------------------------------------------------
   -- GOLANG ---------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#gofmt=
   formatting.gofmt.with({
-    _opts = {
-      command = "gofmt -s",
-      to_stdin = true
-    }
+    command = "gofmt",
   }),
-  --  https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
-  diagnostics.golangci_lint.with({
-    args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
-  }),
+  --   .with({
+  --   _opts = {
+  --     command = {"go", "fmt"},
+  --     to_stdin = true
+  --   }
+  -- }),
+  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
+  -- waiting for generics support
+  -- diagnostics.golangci_lint.with({
+  --   args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
+  -- }),
   -------------------------------------------------------------------------------------------------
   -- GITSIGNS -------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
