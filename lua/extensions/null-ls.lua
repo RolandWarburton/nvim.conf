@@ -72,6 +72,11 @@ local sources = {
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#gofmt=
   formatting.gofmt.with({
     command = "gofmt",
+    args = function(params)
+      return {
+        vim.fn.expand('%p')
+      }
+    end
   }),
   --   .with({
   --   _opts = {
