@@ -24,6 +24,8 @@ vim.api.nvim_create_autocmd('User', {
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
     -- Selects a code action available at the current cursor position
     bufmap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    -- Format the current buffer
+    bufmap('n', '<space>f', '<cmd>lua Lsp_formatting()<cr>')
     -- Show diagnostics in a floating window
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     -- Move to the previous diagnostic
