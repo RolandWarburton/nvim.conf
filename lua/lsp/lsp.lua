@@ -32,8 +32,6 @@ end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  lsp_highlight_under_cursor(client, bufnr)
-
   -- attach the lsp_signature plugin for param help
   require'lsp_signature'.on_attach()
 
@@ -50,7 +48,9 @@ local on_attach = function(client, bufnr)
         end,
       }
     )
-  end
+
+  lsp_highlight_under_cursor(client, bufnr)
+end
 
   -- disable inline diagnostics
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
