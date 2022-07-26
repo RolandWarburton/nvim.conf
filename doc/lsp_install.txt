@@ -73,20 +73,6 @@ rm $L/vale_2.18.0_Linux_64-bit.tar.gz
 
 Then run `vale sync --config $HOME/.config/nvim/conf/vale.ini`.
 
-```none
-StylesPath = styles
-
-MinAlertLevel = suggestion
-Vocab = Base
-
-Packages = proselint
-
-[*]
-BasedOnStyles = Vale, proselint
-```
-
-Then run `vale --config $HOME/.config/.vale.ini sync`
-
 The last tested working version of vale is 2.18.0
 
 ===============================================================================
