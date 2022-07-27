@@ -5,6 +5,11 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+-- configure folding
+vim.cmd('set foldmethod=expr')
+vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
+vim.cmd.foldlevelstart=99
+
 -- make tabs 2 spaces long
 vim.opt.tabstop = 2
 
