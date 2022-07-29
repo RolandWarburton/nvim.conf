@@ -88,6 +88,7 @@ return packer.startup(function(use, use_rocks)
   use { 'mfussenegger/nvim-dap' }
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use { "lukas-reineke/indent-blankline.nvim" }
+  use { "andweeb/presence.nvim" }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
