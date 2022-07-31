@@ -1,5 +1,7 @@
 -- color scheme
-vim.cmd [[colorscheme darkplus]]
+require('vscode').setup({
+  transparent = false,
+})
 
 require('core.settings')
 require('core.trailing')

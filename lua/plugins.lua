@@ -33,7 +33,7 @@ return packer.startup(function(use, use_rocks)
     requires = { {'nvim-lua/plenary.nvim'} }
   } -- Have packer manage itself
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "martinsione/darkplus.nvim" -- color scheme
+  use "Mofiqul/vscode.nvim" -- color scheme
   use "kyazdani42/nvim-web-devicons" -- for file icons
   use "kyazdani42/nvim-tree.lua" -- file tree
   use {
