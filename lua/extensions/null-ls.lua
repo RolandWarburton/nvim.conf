@@ -74,7 +74,7 @@ local sources = {
     command = "gofmt",
     args = function(params)
       return {
-        vim.fn.expand('%p')
+        vim.fn.expand('%:p')
       }
     end
   }),
