@@ -11,6 +11,9 @@ vim.opt.tabstop = 2
 -- relative number lines
 vim.opt.relativenumber = true
 
+-- ignore case for grep
+vim.opt.ignorecase = true
+
 -- shows better messages
 vim.opt.cmdheight = 1
 
