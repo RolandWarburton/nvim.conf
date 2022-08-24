@@ -6,6 +6,9 @@ if ok then
   })
 end
 
+local ini = require 'inifile'
+local config = ini.parse('config.ini')['config']
+
 require('core.settings')
 require('core.trailing')
 require('core.space')
@@ -24,7 +27,10 @@ require('extensions.gitsigns')
 require('extensions.lspSignature')
 require('extensions.neoclip')
 require('extensions.neogit')
-require('extensions.presence')
+if config['enable_presence'] then
+  print('loading')
+  require('extensions.presence')
+end
 require('extensions.null-ls')
 require('extensions.nvimTree')
 require('extensions.spellSitter')
