@@ -1,4 +1,5 @@
 -- GENERAL SETTINGS
+local home = require'os'.getenv('HOME')
 
 -- soft tab 2 spaces
 vim.opt.shiftwidth = 2
@@ -16,6 +17,9 @@ vim.opt.tabstop = 2
 -- relative number lines
 vim.opt.relativenumber = true
 
+-- ignore case for grep
+vim.opt.ignorecase = true
+
 -- shows better messages
 vim.opt.cmdheight = 1
 
@@ -24,6 +28,7 @@ vim.opt.colorcolumn = '100'
 
 -- enable native spell checking
 vim.cmd('set spell spelllang=en_us')
+vim.cmd('set spellfile='..home..'.config/nvim/spell/en.utf-8.add')
 
 -- Fix comments (see :h fo-table and :h formatoptions)
 -- -= is subtracting the following values

@@ -33,7 +33,7 @@ return packer.startup(function(use, use_rocks)
     requires = { {'nvim-lua/plenary.nvim'} }
   } -- Have packer manage itself
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "martinsione/darkplus.nvim" -- color scheme
+  use "Mofiqul/vscode.nvim" -- color scheme
   use "kyazdani42/nvim-web-devicons" -- for file icons
   use "kyazdani42/nvim-tree.lua" -- file tree
   use {
@@ -87,6 +87,8 @@ return packer.startup(function(use, use_rocks)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'numToStr/Comment.nvim' }
   use { 'lewis6991/spellsitter.nvim' }
+  use { "andweeb/presence.nvim" }
+  use_rocks { 'inifile' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
