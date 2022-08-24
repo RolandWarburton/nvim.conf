@@ -28,7 +28,6 @@ require('extensions.lspSignature')
 require('extensions.neoclip')
 require('extensions.neogit')
 if config['enable_presence'] then
-  print('loading')
   require('extensions.presence')
 end
 require('extensions.null-ls')
