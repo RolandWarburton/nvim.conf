@@ -1,7 +1,10 @@
 -- color scheme
-require('vscode').setup({
-  transparent = false,
-})
+local ok, vscode = pcall(require, 'vscode')
+if ok then
+  vscode.setup({
+    transparent = false,
+  })
+end
 
 require('core.settings')
 require('core.trailing')
