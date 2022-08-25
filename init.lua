@@ -1,3 +1,5 @@
+local home = require'os'.getenv('HOME')
+
 -- color scheme
 local ok, vscode = pcall(require, 'vscode')
 if ok then
@@ -7,7 +9,7 @@ if ok then
 end
 
 local ini = require 'inifile'
-local config = ini.parse('config.ini')['config']
+local config = ini.parse(home .. '/.config/nvim/config.ini')['config']
 
 require('core.settings')
 require('core.trailing')
