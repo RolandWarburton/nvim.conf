@@ -29,7 +29,7 @@ vim.opt.colorcolumn = '100'
 
 -- enable native spell checking
 vim.cmd('set spell spelllang=en_us')
-vim.cmd('set spellfile='..home..'.config/nvim/spell/en.utf-8.add')
+vim.cmd('set spellfile='..home..'/.config/nvim/spell/en.utf-8.add')
 
 -- Fix comments (see :h fo-table and :h formatoptions)
 -- -= is subtracting the following values
