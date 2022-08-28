@@ -124,5 +124,5 @@ vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist(
 -- create jump to next and previous git hunk
 map('n', ']c', ':Gitsigns next_hunk<cr>')
 map('n', '[c', ':Gitsigns prev_hunk<cr>')
-map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<cr>')
+map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<cr>')
