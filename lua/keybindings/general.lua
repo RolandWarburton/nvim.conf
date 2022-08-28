@@ -116,3 +116,7 @@ vim.api.nvim_create_user_command('GitOpenDiff', ':Gitsigns diffthis<cr>', {})
 
 -- create a custom command to open the diagnostic window
 vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist()<cr>', {})
+
+-- create jump to next and previous git hunk
+map('n', '<Leader>hj', ':Gitsigns next_hunk<cr>', opts)
+map('n', '<Leader>hk', ':Gitsigns prev_hunk<cr>', opts)
