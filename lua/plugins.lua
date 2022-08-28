@@ -73,7 +73,7 @@ return packer.startup(function(use, use_rocks)
   } -- snippets engine for nvim-cmp
   use {'rafamadriz/friendly-snippets'} -- snippets collection for various languages
   use {'windwp/nvim-autopairs'} -- close things like brackets
-  use {'tpope/vim-surround'} -- change quotes cs"'
+  use {'kylechui/nvim-surround'} -- change quotes cs"'
   use {
     'AckslD/nvim-neoclip.lua',
       requires = {

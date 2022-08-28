@@ -36,6 +36,7 @@ end
 require('extensions.null-ls')
 require('extensions.nvimTree')
 require('extensions.spellSitter')
+require('extensions.surround')
 require('extensions.telescope')
 require('extensions.treesitter')
 require('extensions.venn')
