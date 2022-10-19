@@ -104,7 +104,7 @@ end
 end
 
 -- this hooks nvim-cmp in with nvim-lsp
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 ---------------------------------------------------------------------------------------------------
 -- TYPESCRIPT -------------------------------------------------------------------------------------
@@ -189,3 +189,16 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
+---------------------------------------------------------------------------------------------------
+-- SQL --------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+require'lspconfig'.sqls.setup{
+  settings = {
+    sqls = {
+      connections = {
+          driver = 'postgresql',
+          dataSourceName = 'host=localhost port=5432 user=slate password=rhinos dbname=slate sslmode=disable',
+      },
+    },
+  },
+}
