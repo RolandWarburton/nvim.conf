@@ -90,6 +90,7 @@ return packer.startup(function(use, use_rocks)
   use { "andweeb/presence.nvim" }
   use { "jbyuki/venn.nvim" }
   use { 'anuvyklack/hydra.nvim' }
+  use { 'Djancyp/better-comments.nvim' }
   use { 'nvim-treesitter/nvim-treesitter-context' }
   use_rocks { 'inifile' }
   -- Automatically set up your configuration after cloning packer.nvim
