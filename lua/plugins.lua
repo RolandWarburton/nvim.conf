@@ -82,15 +82,17 @@ return packer.startup(function(use, use_rocks)
   use { 'anuvyklack/hydra.nvim' }
   use { 'Djancyp/better-comments.nvim' }
   use {
-    'p00f/nvim-ts-rainbow'
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter'
+    'nvim-treesitter/nvim-treesitter',
   -- to install new TS language support
   -- :TSUpdateSync
   -- :TSInstall typescript
   }
-  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+  }
+  use {
+    'p00f/nvim-ts-rainbow',
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
