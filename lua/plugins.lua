@@ -1,23 +1,21 @@
 -- allow for the use of :PackerRocks commands
-require'packer.luarocks'.install_commands()
 
 local fn = vim.fn
 
 -- typically this is in ~/.local/share/nvim
 -- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -27,6 +25,7 @@ end
 
 -- Install your plugins here
 return packer.startup(function(use, use_rocks)
+  use_rocks { 'inifile' }
   use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used in lots of plugins
   use {
     "wbthomason/packer.nvim",
@@ -46,15 +45,6 @@ return packer.startup(function(use, use_rocks)
     cmake --build build --config Release && \
     cmake --install build --prefix build',
     requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter'
-  -- to install new TS language support
-  -- :TSUpdateSync
-  -- :TSInstall typescript
-  }
-  use {
-    'p00f/nvim-ts-rainbow'
   }
   use {'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-buffer'} -- completions from buffers
@@ -91,12 +81,20 @@ return packer.startup(function(use, use_rocks)
   use { "jbyuki/venn.nvim" }
   use { 'anuvyklack/hydra.nvim' }
   use { 'Djancyp/better-comments.nvim' }
+  use {
+    'p00f/nvim-ts-rainbow'
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter'
+  -- to install new TS language support
+  -- :TSUpdateSync
+  -- :TSInstall typescript
+  }
   use { 'nvim-treesitter/nvim-treesitter-context' }
-  use_rocks { 'inifile' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
+  if packer_bootstrap then
+    require('packer').sync()
   end
 end)
 
