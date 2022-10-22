@@ -96,7 +96,9 @@ return packer.startup(function(use, use_rocks)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
+    print('syncing')
     require('packer').sync()
+    print('synced')
   end
 end)
 
