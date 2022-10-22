@@ -13,10 +13,11 @@ local config = ini.parse(home .. '/.config/nvim/config.ini')['config']
 
 local function loadPlugin(name)
   ok, err = pcall(require, name)
-  if not ok then
+  if (not ok) then
     print("failed to load " .. name)
+  end
+  if (not os.getenv("LOAD_PLUGIN_FAILS_SILENTLY") == "true")  then
     print(err)
-    return
   end
 end
 
