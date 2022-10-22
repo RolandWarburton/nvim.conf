@@ -20,12 +20,12 @@ local function loadPlugin(name)
   end
 end
 
+loadPlugin('plugins')
 require('core.settings')
 loadPlugin('core.trailing')
 loadPlugin('core.space')
 loadPlugin('keybindings.general')
 loadPlugin('keybindings.comment')
-loadPlugin('plugins')
 loadPlugin('lsp.lsp')
 loadPlugin('neovide.config')
 loadPlugin('core.statusline')
