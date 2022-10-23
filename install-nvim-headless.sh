@@ -11,6 +11,7 @@ install_packer() {
   fi
 }
 
+# this is broken
 bootstrap_plugins() {
   LOAD_PLUGIN_FAILS_SILENTLY=false nvim --headless -c \
     'autocmd User PackerComplete quitall' \
@@ -18,4 +19,4 @@ bootstrap_plugins() {
 }
 
 install_packer
-bootstrap_plugins
+# bootstrap_plugins
