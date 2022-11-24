@@ -1,6 +1,6 @@
 local function status_line()
   local mode = "%-5{%v:lua.string.upper(v:lua.vim.fn.mode())%}"
-  local file_name = "%-.16t"
+  local file_name = "%-.26t"
   local buf_nr = "[%n]"
   local modified = " %-m"
   local file_type = " %y"

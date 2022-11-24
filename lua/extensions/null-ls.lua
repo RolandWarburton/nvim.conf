@@ -48,6 +48,12 @@ local sources = {
       }
     end
   }),
+  -- format markdown with prettier
+  formatting.prettierd.with({
+    filetypes = {
+      "markdown"
+    }
+  }),
   -------------------------------------------------------------------------------------------------
   -- VALE -----------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
@@ -74,21 +80,10 @@ local sources = {
     command = "gofmt",
     args = function(params)
       return {
-        vim.fn.expand('%p')
+        vim.fn.expand('%:p')
       }
     end
   }),
-  --   .with({
-  --   _opts = {
-  --     command = {"go", "fmt"},
-  --     to_stdin = true
-  --   }
-  -- }),
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#golangci_lint=
-  -- waiting for generics support
-  -- diagnostics.golangci_lint.with({
-  --   args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" }
-  -- }),
   -------------------------------------------------------------------------------------------------
   -- GITSIGNS -------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------

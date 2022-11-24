@@ -1,5 +1,13 @@
 # NVIM Conf
 
+Install luarocks `sudo apt install luarocks`.
+
+Install lua dependencies.
+
+```none
+sudo luarocks install inifile
+```
+
 ![screenshot](/media/screenshot1.png)
 
 Configurations for nvim.

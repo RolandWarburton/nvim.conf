@@ -33,7 +33,7 @@ return packer.startup(function(use, use_rocks)
     requires = { {'nvim-lua/plenary.nvim'} }
   } -- Have packer manage itself
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "martinsione/darkplus.nvim" -- color scheme
+  use "Mofiqul/vscode.nvim" -- color scheme
   use "kyazdani42/nvim-web-devicons" -- for file icons
   use "kyazdani42/nvim-tree.lua" -- file tree
   use {
@@ -71,7 +71,7 @@ return packer.startup(function(use, use_rocks)
   } -- snippets engine for nvim-cmp
   use {'rafamadriz/friendly-snippets'} -- snippets collection for various languages
   use {'windwp/nvim-autopairs'} -- close things like brackets
-  use {'tpope/vim-surround'} -- change quotes cs"'
+  use {'kylechui/nvim-surround'} -- change quotes cs"'
   use {
     'AckslD/nvim-neoclip.lua',
       requires = {
@@ -89,6 +89,11 @@ return packer.startup(function(use, use_rocks)
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "andweeb/presence.nvim" }
+  use { "jbyuki/venn.nvim" }
+  use { 'anuvyklack/hydra.nvim' }
+  use { 'Djancyp/better-comments.nvim' }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use_rocks { 'inifile' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

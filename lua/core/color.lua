@@ -32,5 +32,8 @@ vim.g.terminal_color_4 = '#569CD6'
 -- ray-x/lsp_signature provided highlight group for param highlighting
 vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { default = true, fg = '#AF5FD7' })
 
+-- fix the neogit highlighting
+vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", {default = false, bg = '#5F875F', fg = '#000000'})
+
 -- fix nvim dap current breakpoint line highlighting
 vim.api.nvim_set_hl(0, "DebugPc", {default = false, bg = "#3a3a3a"})

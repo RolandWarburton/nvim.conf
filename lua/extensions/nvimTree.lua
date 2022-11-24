@@ -1,5 +1,14 @@
 require 'nvim-tree'.setup {
   update_cwd = true,
+  renderer = {
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = "x",
+        },
+      },
+    },
+  },
   view = {
     mappings = {
       custom_only = false,

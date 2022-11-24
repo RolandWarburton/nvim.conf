@@ -10,39 +10,43 @@
 --   command_mode      = "c",
 
 -- some shortcuts to make the conf file more clean
-local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local function map(mode, l, r, opts)
+  opts = opts or {}
+  opts.buffer = bufnr
+  vim.keymap.set(mode, l, r, opts)
+end
 local expr = { noremap = true, silent = true, expr = true }
 
 -- map leader key
-map("n", ",", "<Nop>", opts)
+map("n", ",", "<Nop>")
 vim.g.mapleader = ','
 
 -- "ctrl+s % and ctrl+s"
 -- use a bang on Vexplore to open to the right
-map('n', '<C-s>%', ':Vexplore!<cr>', opts)
-map('n', '<C-s>"', ':Hexplore<cr>', opts)
+map('n', '<C-s>%', ':Vexplore!<cr>')
+map('n', '<C-s>"', ':Hexplore<cr>')
 
 -- turn highlighting off
-map('n', '<C-n>', ':noh<cr>', opts)
+map('n', '<C-n>', ':noh<cr>')
 
 -- tab navigation
-map('n', '<C-PageUp>', ':tabn<cr>', opts)
-map('n', '<C-PageDown>', ':tabp<cr>', opts)
+map('n', '<C-PageUp>', ':tabn<cr>')
+map('n', '<C-PageDown>', ':tabp<cr>')
 
 -- paste from the system clipboard
 -- note system clipboard copy is done in :h clipboard
-map('n', 'p', '"+p', opts)
+map('n', 'p', '"+p')
 -- map telescope fzf to appropriate ctrl+p to find files
 local isInGit = os.execute('git rev-parse --is-inside-work-tree')
 if isInGit == "true"then
-  map('n', '<C-p>', ':Telescope git_files<cr>', opts)
+  map('n', '<C-p>', ':Telescope git_files<cr>')
 else
-  map('n', '<C-p>', ':Telescope find_files hidden=true <cr>', opts) -- careful with this on slow computers
+  map('n', '<C-p>', ':Telescope find_files hidden=true <cr>') -- careful with this on slow computers
 end
 
 -- fuzzy find vim commands
-map('n', '<Leader>p', ':Telescope commands<cr>', opts)
+map('n', '<Leader>p', ':Telescope commands<cr>')
 
 -- mimic "Find active file in file explorer" in VSCode
 function _G.revealFileJump()
@@ -65,29 +69,29 @@ function _G.revealFileJump()
 end
 
 -- map F1 to jump to file tree
-map('n', '<F1>', ':lua revealFileJump()<cr>', opts)
+map('n', '<F1>', ':lua revealFileJump()<cr>')
 
 -- tab navigation
-map('n', '<Leader>t', ':tabnew<cr>', opts)
-map('n', '<Leader>1', '1gt', opts)
-map('n', '<Leader>2', '2gt', opts)
-map('n', '<Leader>3', '3gt', opts)
-map('n', '<Leader>4', '4gt', opts)
-map('n', '<Leader>5', '5gt', opts)
-map('n', '<Leader>6', '6gt', opts)
-map('n', '<Leader>7', '7gt', opts)
-map('n', '<Leader>8', '8gt', opts)
-map('n', '<Leader>9', '9gt', opts)
+map('n', '<Leader>t', ':tabnew<cr>')
+map('n', '<Leader>1', '1gt')
+map('n', '<Leader>2', '2gt')
+map('n', '<Leader>3', '3gt')
+map('n', '<Leader>4', '4gt')
+map('n', '<Leader>5', '5gt')
+map('n', '<Leader>6', '6gt')
+map('n', '<Leader>7', '7gt')
+map('n', '<Leader>8', '8gt')
+map('n', '<Leader>9', '9gt')
 
 -- open command history
 -- requires neoclip, and telescope
-map('n', '<Leader>c', ':Telescope neoclip<cr>', opts)
+map('n', '<Leader>c', ':Telescope neoclip<cr>')
 
 -- open last telescope command, preserving state
-map('n', '<Leader>r', ':Telescope resume<cr>', opts)
+map('n', '<Leader>r', ':Telescope resume<cr>')
 
 -- live grep
-map('n', '<Leader>g', ':Telescope live_grep<cr>', opts)
+map('n', '<Leader>g', ':Telescope live_grep<cr>')
 
 -- open git with just ":Git" command
 vim.api.nvim_create_user_command('Git', ':lua vim.api.nvim_command("Neogit")', {})
@@ -103,10 +107,10 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', ':lua Toggle_format_on_sa
 vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>', {})
 
 -- create a qa! alias
-map('n', '<Leader>qq', ':qa<cr>', opts)
+map('n', '<Leader>qq', ':qa<cr>')
 
 -- git blame via gitsigns.nvim plugin
-map('n', '<space>gb', ':Gitsigns blame_line<cr>', opts)
+map('n', '<space>gb', ':Gitsigns blame_line<cr>')
 
 -- git toggle to show deleted lines
 vim.api.nvim_create_user_command('GitToggleShowDeletedLines', ':Gitsigns toggle_deleted<cr>', {})
@@ -117,8 +121,18 @@ vim.api.nvim_create_user_command('GitOpenDiff', ':Gitsigns diffthis<cr>', {})
 -- create a custom command to open the diagnostic window
 vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist()<cr>', {})
 
+<<<<<<< HEAD
 -- nvim dap keybinds
 map('n', '<F5>', ':lua require"dap".continue()<cr>', opts)
+
+-- create jump to next and previous git hunk
+map('n', ']c', ':Gitsigns next_hunk<cr>')
+map('n', '[c', ':Gitsigns prev_hunk<cr>')
+map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<cr>')
+map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<cr>')
+map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
+map('n', '<leader>hd', ':Gitsigns diffthis<cr>')
+map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
 
 -- nvim dap set breakpoint
 map('n', '<Leader>db', ':lua require"dap".toggle_breakpoint()<cr>', opts)
