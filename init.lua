@@ -23,7 +23,7 @@ end
 
 loadPlugin('plugins')
 require('core.settings')
-loadPlugin('core.space')
+require('core.listchars').setup()
 loadPlugin('keybindings.general')
 loadPlugin('keybindings.comment')
 loadPlugin('lsp.lsp')
