@@ -23,7 +23,6 @@ end
 
 loadPlugin('plugins')
 require('core.settings')
-loadPlugin('core.trailing')
 loadPlugin('core.space')
 loadPlugin('keybindings.general')
 loadPlugin('keybindings.comment')
