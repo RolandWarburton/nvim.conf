@@ -129,3 +129,16 @@ map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<cr>')
 map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
 map('n', '<leader>hd', ':Gitsigns diffthis<cr>')
 map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
+
+-- toggle the space virtual text
+function Toggle_listchar()
+  local listchars = vim.opt.listchars:get()
+  print(listchars)
+  if listchars.space == Listchars.space then
+    vim.opt.listchars:append({ space = " " })
+  else
+    vim.opt.listchars:append({ space = Listchars.space })
+  end
+end
+
+vim.api.nvim_create_user_command('ToggleSpaceVirtText', ':lua Toggle_listchar()<cr>', {})
