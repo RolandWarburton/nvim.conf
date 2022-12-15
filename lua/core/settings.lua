@@ -76,3 +76,14 @@ vim.api.nvim_set_hl(0, "CursorLineNR", {default=true, bg='#ffffff', fg='#ffffff'
 
 -- disable the close (X) button on vim tab line
 vim.cmd('set guioptions-=e')
+
+-- copy as root
+local function copy_as_root()
+  local user = os.getenv("USER")
+  if user == "root" then
+    -- make some assumptions about what the users wayland session might be
+    vim.fn.setenv("WAYLAND_DISPLAY", "wayland-1")
+    vim.fn.setenv("XDG_RUNTIME_DIR", "/run/user/1000")
+  end
+end
+copy_as_root()
