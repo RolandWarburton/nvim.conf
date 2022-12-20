@@ -18,7 +18,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
   return
 end
@@ -28,13 +28,13 @@ return packer.startup(function(use, use_rocks)
   use_rocks { 'inifile' }
   use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used in lots of plugins
   use {
-    "wbthomason/packer.nvim",
+    'wbthomason/packer.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   } -- Have packer manage itself
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "Mofiqul/vscode.nvim" -- color scheme
-  use "kyazdani42/nvim-web-devicons" -- for file icons
-  use "kyazdani42/nvim-tree.lua" -- file tree
+  use 'neovim/nvim-lspconfig' -- enable LSP
+  use 'Mofiqul/vscode.nvim' -- color scheme
+  use 'kyazdani42/nvim-web-devicons' -- for file icons
+  use 'kyazdani42/nvim-tree.lua' -- file tree
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -58,7 +58,7 @@ return packer.startup(function(use, use_rocks)
     require('luasnip').config.set_config {
       history = true,
     }
-    require("luasnip.loaders.from_vscode").load {}
+    require('luasnip.loaders.from_vscode').load {}
     end
   } -- snippets engine for nvim-cmp
   use {'rafamadriz/friendly-snippets'} -- snippets collection for various languages
@@ -77,8 +77,8 @@ return packer.startup(function(use, use_rocks)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'numToStr/Comment.nvim' }
   use { 'lewis6991/spellsitter.nvim' }
-  use { "andweeb/presence.nvim" }
-  use { "jbyuki/venn.nvim" }
+  use { 'andweeb/presence.nvim' }
+  use { 'jbyuki/venn.nvim' }
   use { 'anuvyklack/hydra.nvim' }
   use { 'Djancyp/better-comments.nvim' }
   use {
@@ -87,12 +87,8 @@ return packer.startup(function(use, use_rocks)
   -- :TSUpdateSync
   -- :TSInstall typescript
   }
-  use {
-    'nvim-treesitter/nvim-treesitter-context',
-  }
-  use {
-    'p00f/nvim-ts-rainbow',
-  }
+  use {'nvim-treesitter/nvim-treesitter-context'}
+  use {'p00f/nvim-ts-rainbow'}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
