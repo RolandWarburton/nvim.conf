@@ -24,8 +24,7 @@ if not status_ok then
 end
 
 -- Install your plugins here
-return packer.startup(function(use, use_rocks)
-  use_rocks { 'inifile' }
+return packer.startup(function(use)
   use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used in lots of plugins
   use {
     'wbthomason/packer.nvim',
@@ -89,6 +88,7 @@ return packer.startup(function(use, use_rocks)
   }
   use {'nvim-treesitter/nvim-treesitter-context'}
   use {'p00f/nvim-ts-rainbow'}
+  use {'ggandor/leap.nvim'}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
