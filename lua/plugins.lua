@@ -8,7 +8,7 @@ local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -28,7 +28,7 @@ return packer.startup(function(use)
   use{ 'nvim-lua/plenary.nvim' } -- Useful lua functions used in lots of plugins
   use {
     'wbthomason/packer.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   } -- Have packer manage itself
   use 'neovim/nvim-lspconfig' -- enable LSP
   use 'Mofiqul/vscode.nvim' -- color scheme
@@ -36,21 +36,21 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua' -- file tree
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && \
     cmake --build build --config Release && \
     cmake --install build --prefix build',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  use {'hrsh7th/nvim-cmp'}
-  use {'hrsh7th/cmp-buffer'} -- completions from buffers
-  use {'hrsh7th/cmp-path'} -- completions for files
-  use {'hrsh7th/cmp-nvim-lua'} -- neovim lua completions
-  use {'hrsh7th/cmp-nvim-lsp'} -- completions from lsp server
-  use {'ray-x/lsp_signature.nvim'}
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-buffer' } -- completions from buffers
+  use { 'hrsh7th/cmp-path' } -- completions for files
+  use { 'hrsh7th/cmp-nvim-lua' } -- neovim lua completions
+  use { 'hrsh7th/cmp-nvim-lsp' } -- completions from lsp server
+  use { 'ray-x/lsp_signature.nvim' }
   use {
     'L3MON4D3/LuaSnip',
     config = function()
@@ -60,14 +60,14 @@ return packer.startup(function(use)
     require('luasnip.loaders.from_vscode').load {}
     end
   } -- snippets engine for nvim-cmp
-  use {'rafamadriz/friendly-snippets'} -- snippets collection for various languages
-  use {'windwp/nvim-autopairs'} -- close things like brackets
-  use {'kylechui/nvim-surround'} -- change quotes cs"'
+  use { 'rafamadriz/friendly-snippets' } -- snippets collection for various languages
+  use { 'windwp/nvim-autopairs' } -- close things like brackets
+  use { 'kylechui/nvim-surround' } -- change quotes cs"'
   use {
     'AckslD/nvim-neoclip.lua',
       requires = {
-       {'tami5/sqlite.lua', module = 'sqlite'},
-       {'nvim-telescope/telescope.nvim'},
+       { 'tami5/sqlite.lua', module = 'sqlite' },
+       { 'nvim-telescope/telescope.nvim' },
     }
   }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' } -- git intergrations
@@ -86,9 +86,9 @@ return packer.startup(function(use)
   -- :TSUpdateSync
   -- :TSInstall typescript
   }
-  use {'nvim-treesitter/nvim-treesitter-context'}
-  use {'p00f/nvim-ts-rainbow'}
-  use {'ggandor/leap.nvim'}
+  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use { 'p00f/nvim-ts-rainbow' }
+  use { 'ggandor/leap.nvim' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
