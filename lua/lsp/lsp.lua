@@ -191,13 +191,13 @@ require'lspconfig'.lua_ls.setup {
 ---------------------------------------------------------------------------------------------------
 -- SQL --------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
-require'lspconfig'.sqls.setup{
-  settings = {
-    sqls = {
-      connections = {
-          driver = 'postgresql',
-          dataSourceName = 'host=localhost port=5432 user=slate password=rhinos dbname=slate sslmode=disable',
-      },
-    },
-  },
-}
+-- DEPRICATED: moving to https://github.com/joe-re/sql-language-server
+-- require'lspconfig'.sqls.setup{
+--   settings = {
+--     sqls = {
+--       connections = {
+--           driver = 'postgresql',
+--           dataSourceName = 'host=localhost port=5432 user=slate password=rhinos dbname=slate sslmode=disable',
+--       },
+--     },
+--   },
