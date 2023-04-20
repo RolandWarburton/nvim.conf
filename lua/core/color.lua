@@ -1,8 +1,8 @@
 -- use for EOL and SPACE
-vim.cmd('hi Nontext ctermfg=\'Gray\'')
+vim.cmd('hi whitespace guibg=cleared guifg=gray')
 
 -- use for the column ruler
-vim.cmd('hi ColorColumn ctermbg=\'Gray\'')
+vim.cmd('hi ColorColumn guifg=gray guibg=cleared')
 
 -- use for EOL, space
 vim.api.nvim_set_hl(0, "SpecialKey", { default = true, bg = "Gray", fg = '#ff0000' })
