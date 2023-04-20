@@ -166,14 +166,13 @@ USER = vim.fn.expand('$USER')
 local lsp_root_path = "/home/" .. USER .. "/.local/lsp"
 local lua_binary_path = lsp_root_path .. "/lua-language-server/bin/lua-language-server"
 
-require'lspconfig'.sumneko_lua.setup {
-  -- root_dir = root_pattern(".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git", "init.lua")
-  capabilities = capabilities,
-  on_attach = on_attach,
-  cmd = {lua_binary_path},
+require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
-      runtime = { version = 'LuaJIT', path = '/opt/lsp/lua-language-server/bin' },
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = {'vim'},
