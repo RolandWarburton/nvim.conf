@@ -163,8 +163,6 @@ require'lspconfig'.html.setup {
 -- LUA --------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 USER = vim.fn.expand('$USER')
-local lsp_root_path = "/home/" .. USER .. "/.local/lsp"
-local lua_binary_path = lsp_root_path .. "/lua-language-server/bin/lua-language-server"
 
 require'lspconfig'.lua_ls.setup {
   settings = {
