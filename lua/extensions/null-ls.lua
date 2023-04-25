@@ -14,8 +14,8 @@ local sources = {
   -- JAVASCRIPT/TYPESCRIPT ------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#eslint=
-  diagnostics.eslint_d,
-  formatting.eslint_d,
+  diagnostics.eslint,
+  code_actions.eslint,
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#prettier=
   formatting.prettierd.with({
     filetypes = {
