@@ -63,7 +63,7 @@ cmp.setup({
 
   -- the different sources for completion
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', max_item_count = 8 }, -- from the language server
+    { name = 'nvim_lsp', max_item_count = 48 }, -- from the language server
     { name = 'luasnip', max_item_count = 128 }, -- from snippets
     { name = 'buffer' }, -- from keywords in the buffer
     { name = 'nvim_lsp_signature_help', max_item_count = 16 }, -- enables showing signature help
