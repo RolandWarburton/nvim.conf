@@ -40,27 +40,27 @@ return packer.startup(function(use)
     'neovim/nvim-lspconfig',
     -- tag='710c45bd13928c1f37ef0a714fd49b75f00d7d5e',
     branch='master'
-  }-- enable LSP
+  } -- enable LSP
   use {
     'Mofiqul/vscode.nvim',
     -- tag='dc5f37603ada51db13bc4009cbee628c5857a274',
     branch='main'
   }-- color scheme
   use {
-    'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     -- tag='4ec26d67d419c12a4abaea02f1b6c57b40c08d7e',
-    branch='main'
+    branch='master'
   }-- for file icons
   use {
     'kyazdani42/nvim-tree.lua',
     -- tag='bb375fb20327c49920c41d2b51c1ce2f4fe7deb3',
-    branch='main'
+    branch='master'
   }-- file tree
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
     -- tag='f2645c13205abb9ee3dbcee68416645c69b863c8',
-    branch='main'
+    branch='master'
   }
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -209,7 +209,7 @@ return packer.startup(function(use)
   use {
     'ggandor/leap.nvim',
     -- tag='ef95c15a935f97c65a80e48e12fe72d49aacf9b9',
-    branch='master'
+    branch='main'
   }
   use {
     'mfussenegger/nvim-dap',
