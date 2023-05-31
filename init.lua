@@ -54,7 +54,6 @@ if config['enable_presence'] then
 end
 loadPlugin('extensions.null-ls')
 loadPlugin('extensions.nvimTree')
-loadPlugin('extensions.spellSitter')
 loadPlugin('extensions.surround')
 loadPlugin('extensions.telescope')
 loadPlugin('extensions.treesitter')
