@@ -34,3 +34,6 @@ vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { default = true, fg = '#A
 
 -- fix the neogit highlighting
 vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", {default = false, bg = '#5F875F', fg = '#000000'})
+
+-- fix the comment highlighting
+vim.api.nvim_set_hl(0, "@Comment", {default = false, bg = '#1E1E1E', fg = '#5F875F'})
