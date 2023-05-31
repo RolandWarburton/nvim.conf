@@ -164,11 +164,6 @@ return packer.startup(function(use)
     branch='master'
   }
   use {
-    'lewis6991/spellsitter.nvim',
-    -- tag='4af8640d9d706447e78c13150ef7475ea2c16b30',
-    branch='master'
-  }
-  use {
     'andweeb/presence.nvim',
     -- tag='87c857a56b7703f976d3a5ef15967d80508df6e6',
     branch='main'
