@@ -137,7 +137,7 @@ return packer.startup(function(use)
     branch='main'
   }
   use {
-    'TimUntersberger/neogit',
+    'NeogitOrg/neogit',
     requires = 'nvim-lua/plenary.nvim',
     -- tag='69a6ca7c41b023ebf9cad70778e227b3209b40c4',
     branch='master'
