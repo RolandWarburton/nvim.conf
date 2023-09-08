@@ -145,3 +145,22 @@ function Toggle_listchar()
 end
 
 vim.api.nvim_create_user_command('ToggleSpaceVirtText', ':lua Toggle_listchar()<cr>', {})
+
+function InsertDate(withTime)
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  if (withTime) then
+    vim.api.nvim_buf_set_text(
+      0, row - 1, col, row - 1, col,
+      { os.date('%Y-%m-%d %I:%M %p') }
+    )
+  else
+    vim.api.nvim_buf_set_text(
+      0, row - 1, col, row - 1, col,
+      { os.date('%Y-%m-%d') }
+    )
+  end
+end
+
+
+vim.api.nvim_create_user_command('InsertDate', ':lua InsertDate(false)<cr>', {})
+vim.api.nvim_create_user_command('InsertDateTime', ':lua InsertDate(true)<cr>', {})
