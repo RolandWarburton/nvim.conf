@@ -69,6 +69,10 @@ vim.opt.numberwidth = 8
 -- allow use of mouse
 vim.opt.mouse = 'a'
 
+-- use tree-sitter for folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- highlight the current line
 vim.opt.cursorline = true
 vim.api.nvim_set_hl(0, "CursorLine", {default=true, bg='#ffffff', fg='#ffffff'})   -- text row
