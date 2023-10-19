@@ -1,117 +1,23 @@
 require'lsp.keybindings'
-local lsp_highlight_under_cursor = require'lsp.highlightUnderCursor'.lsp_highlight_under_cursor
 
 -- set the debug level for lsp
 vim.lsp.set_log_level("debug")
 
 -- we need this for lsp servers
+-- it allows us to define what files define the root of a project
 local root_pattern = require("lspconfig").util.root_pattern
 
 local lsp_config = require('lspconfig')
 
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+-- feed lsp into the completion engine
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- this is used in on_attach to call lsp formatting when called
--- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-Lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            -- apply whatever logic you want (in this example, we'll only use null-ls)
-            return client.name == "null-ls"
-        end,
-        bufnr = bufnr,
-    })
-end
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   -- attach the lsp_signature plugin for param help
   require'lsp_signature'.on_attach()
-
-  -- this is a backup for seeing diagnostics if trouble is not installed
-  local _, err = pcall(require, 'trouble')
-  if err then
-    vim.api.nvim_create_autocmd(
-      { 'TextChanged', 'InsertLeave' },
-      {
-        pattern = '*',
-        callback = function()
-          -- refresh quick fix list
-          vim.schedule(function() vim.diagnostic.setloclist({open = false}) end)
-        end,
-      }
-    )
-
-  lsp_highlight_under_cursor(client, bufnr)
 end
 
-  -- disable inline diagnostics
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = false,
-      signs = true
-    }
-  )
-
-  -- run an auto command to create keybindings
-  vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
-
-  if client.supports_method("textDocument/formatting") then
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    -- this will run before on every buffer (file) save
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          -- check if format_on_save global is set before saving
-          if vim.g.user_format_on_save then
-            Lsp_formatting(bufnr)
-          end
-        end,
-      })
-  end
-
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wl', function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, bufopts)
-  -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-end
-
--- this hooks nvim-cmp in with nvim-lsp
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
----------------------------------------------------------------------------------------------------
--- TYPESCRIPT -------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
--- npm i -g typescript typescript-language-server eslint prettier
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tsserver
--- https://github.com/typescript-language-server/typescript-language-server
+-- javascript/typescript
 require 'lspconfig'.tsserver.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -121,10 +27,7 @@ require 'lspconfig'.tsserver.setup {
   root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
 
----------------------------------------------------------------------------------------------------
--- GOLANG -----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
--- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+-- GOLANG
 lsp_config.gopls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -141,10 +44,7 @@ lsp_config.gopls.setup {
   },
 }
 
----------------------------------------------------------------------------------------------------
--- HTML -------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
--- npm i -g vscode-langservers-extracted
+-- HTML
 require'lspconfig'.html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -159,11 +59,8 @@ require'lspconfig'.html.setup {
   }
 }
 
----------------------------------------------------------------------------------------------------
--- LUA --------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
+-- LUA
 USER = vim.fn.expand('$USER')
-
 require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
@@ -185,17 +82,3 @@ require'lspconfig'.lua_ls.setup {
     },
   },
 }
-
----------------------------------------------------------------------------------------------------
--- SQL --------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
--- DEPRICATED: moving to https://github.com/joe-re/sql-language-server
--- require'lspconfig'.sqls.setup{
---   settings = {
---     sqls = {
---       connections = {
---           driver = 'postgresql',
---           dataSourceName = 'host=localhost port=5432 user=slate password=rhinos dbname=slate sslmode=disable',
---       },
---     },
---   },
