@@ -211,6 +211,7 @@ return packer.startup(function(use)
     -- tag='6cedcb527e264c8f25e86afa8dae74c6692dee51',
     branch='master'
   }
+  use { 'RRethy/vim-illuminate', branch='master' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
