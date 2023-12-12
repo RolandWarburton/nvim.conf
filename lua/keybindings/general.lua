@@ -39,7 +39,7 @@ map('n', '<C-PageDown>', ':tabp<cr>')
 map('n', 'p', '"+p')
 -- map telescope fzf to appropriate ctrl+p to find files
 local isInGit = os.execute('git rev-parse --is-inside-work-tree')
-if isInGit == "true"then
+if isInGit == "true" then
   map('n', '<C-p>', ':Telescope git_files<cr>')
 else
   map('n', '<C-p>', ':Telescope find_files hidden=true <cr>') -- careful with this on slow computers
