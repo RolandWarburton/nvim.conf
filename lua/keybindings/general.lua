@@ -138,6 +138,12 @@ function InsertDate(withTime)
   end
 end
 
+function CopyBufferToClipboard()
+  local content = table.concat(vim.fn.getline(1, '$'), "\n")
+  content = content:gsub("'", "'\\''") -- Escape single quotes
+  vim.fn.setreg('+', content, 'c')
+end
 
+vim.api.nvim_create_user_command('CopyBufferToClipboard', ':lua CopyBufferToClipboard()<cr>', {})
 vim.api.nvim_create_user_command('InsertDate', ':lua InsertDate(false)<cr>', {})
 vim.api.nvim_create_user_command('InsertDateTime', ':lua InsertDate(true)<cr>', {})
