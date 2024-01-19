@@ -1,4 +1,4 @@
-require'lsp.keybindings'
+require 'lsp.keybindings'
 
 -- set the debug level for lsp
 vim.lsp.set_log_level("debug")
@@ -14,7 +14,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 local on_attach = function(client, bufnr)
   -- attach the lsp_signature plugin for param help
-  require'lsp_signature'.on_attach()
+  require 'lsp_signature'.on_attach()
 end
 
 -- javascript/typescript
@@ -31,8 +31,8 @@ require 'lspconfig'.tsserver.setup {
 lsp_config.gopls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  cmd = {"gopls", "serve"},
-  filetypes = {"go", "gomod"},
+  cmd = { "gopls", "serve" },
+  filetypes = { "go", "gomod" },
   root_dir = lsp_config.util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
@@ -45,7 +45,7 @@ lsp_config.gopls.setup {
 }
 
 -- HTML
-require'lspconfig'.html.setup {
+require 'lspconfig'.html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "html" },
@@ -61,7 +61,7 @@ require'lspconfig'.html.setup {
 
 -- LUA
 USER = vim.fn.expand('$USER')
-require'lspconfig'.lua_ls.setup {
+require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
@@ -70,7 +70,7 @@ require'lspconfig'.lua_ls.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
