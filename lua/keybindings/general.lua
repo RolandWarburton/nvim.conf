@@ -110,6 +110,9 @@ map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
 map('n', '<leader>hd', ':Gitsigns diffthis<cr>')
 map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
 
+-- toggle twilight
+map('n', '<leader>z', ':Twilight<cr>')
+
 -- toggle the space virtual text
 function Toggle_listchar()
   local listchars = vim.opt.listchars:get()

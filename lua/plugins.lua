@@ -30,6 +30,13 @@ return packer.startup(function(use)
     branch = 'master'
   } -- Useful lua functions used in lots of plugins
   use {
+    "folke/twilight.nvim",
+    opts = {
+      treesitter = true,
+      exclude = { 'md' }
+    }
+  }
+  use {
     'wbthomason/packer.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
     branch = 'master'
