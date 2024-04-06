@@ -104,11 +104,16 @@ map('n', '<Leader>f', ':NvimTreeFindFile<cr>')
 -- create jump to next and previous git hunk
 map('n', ']c', ':Gitsigns next_hunk<cr>')
 map('n', '[c', ':Gitsigns prev_hunk<cr>')
+map('v', ']c', ':Gitsigns select_hunk<cr>')
+map('v', '[c', ':Gitsigns select_hunk<cr>')
 map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<cr>')
 map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<cr>')
 map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
 map('n', '<leader>hd', ':Gitsigns diffthis<cr>')
 map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
+
+-- toggle twilight
+map('n', '<leader>z', ':Twilight<cr>')
 
 -- toggle the space virtual text
 function Toggle_listchar()

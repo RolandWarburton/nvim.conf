@@ -12,11 +12,11 @@ if cmp == nil then
   vim.api.nvim_err_writeln('CMP failed to load')
   return
 end
-local luasnip = require'luasnip'
+local luasnip = require 'luasnip'
 
 -- changes the behaviour about the completion popups
 -- see :help completeopt
-vim.o.completeopt="menu,menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 
 -- util function for tabbing through nvim-cmp suggestions
 -- taken from https://github.com/GabrieleStulzer/dotfiles/blob/master/.config/nvim/lua/plugins/nvim-cmp.lua
@@ -63,10 +63,10 @@ cmp.setup({
 
   -- the different sources for completion
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', max_item_count = 48 }, -- from the language server
-    { name = 'luasnip', max_item_count = 128 }, -- from snippets
-    { name = 'buffer' }, -- from keywords in the buffer
+    { name = 'nvim_lsp',                max_item_count = 48 }, -- from the language server
+    { name = 'luasnip',                 max_item_count = 128 }, -- from snippets
+    { name = 'buffer' },                                       -- from keywords in the buffer
     { name = 'nvim_lsp_signature_help', max_item_count = 16 }, -- enables showing signature help
-    { name = 'path', max_item_count = 16 }, -- completing file paths
+    { name = 'path',                    max_item_count = 16 }, -- completing file paths
   })
 })

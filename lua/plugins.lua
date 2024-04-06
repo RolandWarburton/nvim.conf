@@ -6,7 +6,7 @@ local fn = vim.fn
 -- Automatically install packer
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
@@ -25,35 +25,42 @@ end
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use{
+  use {
     'nvim-lua/plenary.nvim',
-    branch='master'
+    branch = 'master'
   } -- Useful lua functions used in lots of plugins
+  use {
+    "folke/twilight.nvim",
+    opts = {
+      treesitter = true,
+      exclude = { 'md' }
+    }
+  }
   use {
     'wbthomason/packer.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    branch='master'
+    branch = 'master'
   } -- Have packer manage itself
   use {
     'neovim/nvim-lspconfig',
-    branch='master'
+    branch = 'master'
   } -- enable LSP
   use {
     'Mofiqul/vscode.nvim',
-    branch='main'
-  }-- color scheme
+    branch = 'main'
+  } -- color scheme
   use {
     'nvim-tree/nvim-web-devicons',
-    branch='master'
-  }-- for file icons
+    branch = 'master'
+  } -- for file icons
   use {
     'kyazdani42/nvim-tree.lua',
-    branch='master'
-  }-- file tree
+    branch = 'master'
+  } -- file tree
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    branch='master'
+    branch = 'master'
   }
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -61,124 +68,124 @@ return packer.startup(function(use)
     cmake --build build --config Release && \
     cmake --install build --prefix build',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    branch='main'
+    branch = 'main'
   }
   use {
     'hrsh7th/nvim-cmp',
-    branch='main'
+    branch = 'main'
   }
   use {
     'hrsh7th/cmp-buffer',
-    branch='main'
+    branch = 'main'
   } -- completions from buffers
   use {
     'hrsh7th/cmp-path',
-    branch='main'
+    branch = 'main'
   } -- completions for files
   use {
     'hrsh7th/cmp-nvim-lua',
-    branch='main'
+    branch = 'main'
   } -- neovim lua completions
   use {
     'hrsh7th/cmp-nvim-lsp',
-    branch='main'
+    branch = 'main'
   } -- completions from lsp server
   use {
     'ray-x/lsp_signature.nvim',
-    branch='master'
+    branch = 'master'
   }
   use {
     'L3MON4D3/LuaSnip',
     config = function()
-    require('luasnip').config.set_config {
-      history = true,
-    }
-    require('luasnip.loaders.from_vscode').load {}
+      require('luasnip').config.set_config {
+        history = true,
+      }
+      require('luasnip.loaders.from_vscode').load {}
     end,
-    branch='master'
+    branch = 'master'
   } -- snippets engine for nvim-cmp
   use {
     'rafamadriz/friendly-snippets',
-    branch='main'
+    branch = 'main'
   } -- snippets collection for various languages
   use {
     'windwp/nvim-autopairs',
-    branch='master'
+    branch = 'master'
   } -- close things like brackets
   use {
     'kylechui/nvim-surround',
-    branch='main'
+    branch = 'main'
   } -- change quotes cs"'
   use {
     'AckslD/nvim-neoclip.lua',
-      requires = {
-       { 'tami5/sqlite.lua', module = 'sqlite' },
-       { 'nvim-telescope/telescope.nvim' },
+    requires = {
+      { 'tami5/sqlite.lua',             module = 'sqlite' },
+      { 'nvim-telescope/telescope.nvim' },
     },
-    branch='main'
+    branch = 'main'
   }
   use {
     'NeogitOrg/neogit',
     requires = 'nvim-lua/plenary.nvim',
-    branch='master'
+    branch = 'master'
   } -- git intergrations
   use {
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    branch='main'
+    branch = 'main'
   } -- git diff for neogit
   use {
     'lewis6991/gitsigns.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'jose-elias-alvarez/null-ls.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'numToStr/Comment.nvim',
-    branch='master'
+    branch = 'master'
   }
   use {
     'andweeb/presence.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'jbyuki/venn.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'anuvyklack/hydra.nvim',
-    branch='master'
+    branch = 'master'
   }
   use {
     'Djancyp/better-comments.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'nvim-treesitter/nvim-treesitter',
-    branch='master'
-  -- to install new TS language support
-  -- :TSUpdateSync
-  -- :TSInstall typescript
+    branch = 'master'
+    -- to install new TS language support
+    -- :TSUpdateSync
+    -- :TSInstall typescript
   }
   use {
     'nvim-treesitter/nvim-treesitter-context',
-    branch='master'
+    branch = 'master'
   }
   use {
     'p00f/nvim-ts-rainbow',
-    branch='master'
+    branch = 'master'
   }
   use {
     'ggandor/leap.nvim',
-    branch='main'
+    branch = 'main'
   }
   use {
     'mfussenegger/nvim-dap',
-    branch='master'
+    branch = 'master'
   }
-  use { 'RRethy/vim-illuminate', branch='master' }
+  use { 'RRethy/vim-illuminate', branch = 'master' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
@@ -187,4 +194,3 @@ return packer.startup(function(use)
     print('synced')
   end
 end)
-
