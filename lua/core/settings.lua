@@ -4,6 +4,9 @@ local home = require'os'.getenv('HOME')
 -- enable guide column
 vim.opt.colorcolumn = "100"
 
+-- show the absolute line number for the current line
+vim.opt.number=true
+
 -- soft tab 2 spaces
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
