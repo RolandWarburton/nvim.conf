@@ -186,6 +186,7 @@ return packer.startup(function(use)
     branch = 'master'
   }
   use { 'RRethy/vim-illuminate', branch = 'master' }
+  use { 'alexghergh/nvim-tmux-navigation' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
