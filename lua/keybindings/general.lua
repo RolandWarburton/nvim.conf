@@ -47,6 +47,8 @@ end
 
 -- fuzzy find vim commands
 map('n', '<Leader>p', ':Telescope commands<cr>')
+-- fuzzy find buffers
+map('n', '<Leader>b', ':Telescope buffers<cr>')
 
 -- tab navigation
 map('n', '<Leader>t', ':tabnew<cr>')
