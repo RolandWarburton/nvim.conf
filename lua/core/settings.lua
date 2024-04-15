@@ -70,7 +70,7 @@ vim.opt.guifont = "Hack:h10"
 vim.opt.timeoutlen = 1000
 
 -- the width of the gutter numbers
-vim.opt.numberwidth = 8
+vim.opt.numberwidth = 1
 
 -- allow use of mouse
 vim.opt.mouse = 'a'
