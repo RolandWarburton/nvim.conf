@@ -89,7 +89,10 @@ vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>'
 map('n', '<Leader>qq', ':qa<cr>')
 
 -- git blame via gitsigns.nvim plugin
-map('n', '<space>gb', ':Gitsigns blame_line<cr>')
+map('n', '<leader>gb', ':Gitsigns blame_line<cr>')
+
+-- git preview hunk
+map('n', '<leader>gp', ':Gitsigns preview_hunk<cr>')
 
 -- git toggle to show deleted lines
 vim.api.nvim_create_user_command('GitToggleShowDeletedLines', ':Gitsigns toggle_deleted<cr>', {})
