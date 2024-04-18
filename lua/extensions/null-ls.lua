@@ -50,7 +50,7 @@ local sources = {
         "--ext",
         ".",
         "--config",
-        require'os'.getenv('HOME') .. "/.config/nvim/conf/vale.ini",
+        require'os'.getenv('HOME') .. "/.vale.ini",
         vim.fn.expand('%:p') -- prints the absolute file path
       }
     end
