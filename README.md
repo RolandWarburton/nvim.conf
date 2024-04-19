@@ -21,9 +21,8 @@ Reading [On sharpening the saw](http://vimcasts.org/blog/2012/08/on-sharpening-t
 
 Read `:help lsp_install` for information.
 
-## Roadmap
+## Features checklist
 
 - [x] Basic nvim config for programming in JS/TS
-- [ ] Basic markdown config (lint)
-- [ ] Configure a rich markdown writing environment (lint, prose, and dictionary)
+- [x] Basic markdown support
 - [ ] Debugging support (learn how to use nvim-dap)
