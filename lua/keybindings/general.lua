@@ -105,6 +105,8 @@ vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist(
 
 -- nvim tree find file
 map('n', '<Leader>f', ':NvimTreeFindFile<cr>')
+-- nvim tree toggle file tree
+map('n', '<Leader>e', ':NvimTreeToggle<cr>')
 
 -- create jump to next and previous git hunk
 map('n', ']c', ':Gitsigns next_hunk<cr>')
