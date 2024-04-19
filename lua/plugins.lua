@@ -185,6 +185,13 @@ return packer.startup(function(use)
     'mfussenegger/nvim-dap',
     branch = 'master'
   }
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+  }
+  use {
+    'leoluz/nvim-dap-go'
+  }
   use { 'RRethy/vim-illuminate', branch = 'master' }
   use { 'alexghergh/nvim-tmux-navigation' }
   -- Automatically set up your configuration after cloning packer.nvim
