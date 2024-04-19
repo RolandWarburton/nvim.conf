@@ -3,7 +3,7 @@
 -- you can check if you have a linter installed for a language by running
 -- (for example to check eslint) :echo executable('eslint')
 -- 1 indicates it is present
-local null_ls = require'null-ls'
+local null_ls = require 'null-ls'
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -27,7 +27,7 @@ local sources = {
       return {
         "--stdin",
         "--config",
-        require'os'.getenv('HOME') .. "/.config/nvim/conf/markdownlint.json"
+        require 'os'.getenv('HOME') .. "/.config/nvim/conf/markdownlint.json"
       }
     end
   }),
@@ -50,7 +50,7 @@ local sources = {
         "--ext",
         ".",
         "--config",
-        require'os'.getenv('HOME') .. "/.config/vale/vale.ini",
+        require 'os'.getenv('HOME') .. "/.config/vale/vale.ini",
         vim.fn.expand('%:p') -- prints the absolute file path
       }
     end
@@ -72,9 +72,9 @@ local sources = {
   -- GOLANG ---------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
   -- https://github.com/JohnnyMorganz/StyLua
-null_ls.builtins.formatting.stylua.with({
+  null_ls.builtins.formatting.stylua.with({
     extra_args = { "--config-path", vim.fn.expand("~/.config/stylua.toml") },
-}),
+  }),
   -------------------------------------------------------------------------------------------------
   -- GITSIGNS -------------------------------------------------------------------------------------
   -------------------------------------------------------------------------------------------------
