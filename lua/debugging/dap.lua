@@ -1,12 +1,12 @@
 local dap = require("dap")
-local dapUI = require('dap-ui-config')
-local dapKeybinds = require('dap-keybindings')
+local dapUI = require('debugging.dap-ui-config')
+local dapKeybinds = require('debugging.dap-keybindings')
 
 --
 -- load language configurations
 --
 -- Load Go configuration
-local go_config = require("dap-configs.go")
+local go_config = require("debugging.dap-configs.go")
 dap.adapters.delve = go_config.adapter
 dap.configurations.go = go_config.configurations
 
