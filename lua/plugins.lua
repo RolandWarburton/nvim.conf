@@ -147,10 +147,6 @@ return packer.startup(function(use)
     branch = 'master'
   }
   use {
-    'andweeb/presence.nvim',
-    branch = 'main'
-  }
-  use {
     'jbyuki/venn.nvim',
     branch = 'main'
   }
