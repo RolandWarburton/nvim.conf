@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   require 'neoclip'.setup {
-    histour = 1000,
+    history = 500,
     enable_persistent_history = false,                                -- causes a startup error
     length_limit = 1048576,
     db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3", -- usually in $HOME/.local/share/nvim
