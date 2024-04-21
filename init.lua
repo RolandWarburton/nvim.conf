@@ -47,9 +47,6 @@ loadPlugin('extensions.lspSignature')
 loadPlugin('extensions.neoclip')
 loadPlugin('extensions.illuminate')
 loadPlugin('extensions.neogit')
-if config['enable_presence'] then
-  loadPlugin('extensions.presence')
-end
 loadPlugin('extensions.null-ls')
 loadPlugin('extensions.nvimTree')
 loadPlugin('extensions.surround')
