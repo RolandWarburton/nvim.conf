@@ -76,8 +76,7 @@ map('n', '<Leader>g', ':Telescope live_grep<cr>')
 vim.api.nvim_create_user_command('Git', ':lua vim.api.nvim_command("Neogit")', {})
 
 -- create a custom command to "format the file"
--- vim.api.nvim_create_user_command('FormatFile', ':lua vim.lsp.buf.formatting()<cr>', {})
-vim.api.nvim_create_user_command('FormatFile', ':lua Lsp_formatting()<cr>', {})
+vim.api.nvim_create_user_command('FormatFile', ':lua vim.lsp.buf.formatting()<cr>', {})
 
 -- create a custom command to toggle format on save
 vim.api.nvim_create_user_command('ToggleFormatOnSave', ':lua Toggle_format_on_save()<cr>', {})
