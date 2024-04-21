@@ -1,7 +1,3 @@
--- vocab folder
-local home = require'os'.getenv('HOME')
-vim.g.user_path_home = home .. '/.config/styles/Vocab'
-
 -- format on save
 vim.g.user_format_on_save = false
 
