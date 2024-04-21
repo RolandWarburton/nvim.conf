@@ -6,9 +6,6 @@ function M.setup()
   -- use for EOL and SPACE
   vim.cmd('hi whitespace guibg=cleared guifg=gray')
 
-  -- use for the column ruler
-  vim.cmd('hi ColorColumn guifg=gray guibg=cleared')
-
   -- use for EOL, space
   vim.api.nvim_set_hl(0, "SpecialKey", { default = true, bg = "Gray", fg = '#ff0000' })
 
@@ -42,6 +39,13 @@ function M.setup()
 
   -- fix the comment highlighting
   vim.api.nvim_set_hl(0, "@Comment", { default = false, bg = '#1E1E1E', fg = '#5F875F' })
+
+  -- color the cursor column (use for the column ruler)
+  vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#222222' })
+
+  -- color the cursor line
+  vim.api.nvim_set_hl(0, "CursorLine", { default = true, bg = '#ffffff', fg = '#ffffff' })   -- text row
+  vim.api.nvim_set_hl(0, "CursorLineNR", { default = true, bg = '#ffffff', fg = '#ffffff' }) -- text row
 end
 
 return M

@@ -4,7 +4,7 @@ function M.setup()
   -- GENERAL SETTINGS
   local home = require 'os'.getenv('HOME')
 
-  -- enable guide column
+  -- show a column bar to suggest the line length
   vim.opt.colorcolumn = "100"
 
   -- show the absolute line number for the current line
@@ -32,9 +32,6 @@ function M.setup()
 
   -- shows better messages
   vim.opt.cmdheight = 1
-
-  -- place a column 100 characters out
-  vim.opt.colorcolumn = '100'
 
   -- enable native spell checking
   vim.cmd('set spell spelllang=en_us')
@@ -84,8 +81,9 @@ function M.setup()
 
   -- highlight the current line
   vim.opt.cursorline = true
-  vim.api.nvim_set_hl(0, "CursorLine", { default = true, bg = '#ffffff', fg = '#ffffff' })   -- text row
-  vim.api.nvim_set_hl(0, "CursorLineNR", { default = true, bg = '#ffffff', fg = '#ffffff' }) -- text row
+
+  -- highlight the cursors column
+  vim.opt.cursorcolumn = true
 
   -- disable the close (X) button on vim tab line
   vim.cmd('set guioptions-=e')
