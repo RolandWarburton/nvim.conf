@@ -19,7 +19,7 @@ M.configurations = {
   },
   {
     type = "delve",
-    name = "Debug test",     -- configuration for debugging test files
+    name = "Debug test", -- configuration for debugging test files
     request = "launch",
     mode = "test",
     program = "${file}"

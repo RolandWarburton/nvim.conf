@@ -1,11 +1,11 @@
-require'neoclip'.setup {
+require 'neoclip'.setup {
   histour = 1000,
-  enable_persistent_history = false, -- causes a startup error
+  enable_persistent_history = false,                                -- causes a startup error
   length_limit = 1048576,
   db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3", -- usually in $HOME/.local/share/nvim
   filter = nil,
   preview = true,
-  default_register = {'"', '+', '*'},
+  default_register = { '"', '+', '*' },
   default_register_macros = 'a',
   enable_macro_history = true,
   content_spec_column = false,
@@ -18,8 +18,8 @@ require'neoclip'.setup {
         select = '<cr>',
         paste = '<c-p>',
         paste_behind = '<c-k>',
-        replay = '<c-q>',  -- replay a macro
-        delete = '<c-d>',  -- delete an entry
+        replay = '<c-q>', -- replay a macro
+        delete = '<c-d>', -- delete an entry
         custom = {},
       },
       n = {
@@ -41,4 +41,4 @@ require'neoclip'.setup {
 }
 
 -- load neoclip as an extension for telescope
-require'telescope'.load_extension'neoclip'
+require 'telescope'.load_extension 'neoclip'

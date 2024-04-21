@@ -1,4 +1,4 @@
-local home = require'os'.getenv('HOME')
+local home = require 'os'.getenv('HOME')
 
 -- color scheme
 vim.o.background = 'dark'
@@ -24,7 +24,7 @@ local function loadPlugin(name)
   if (not ok) then
     print("failed to load " .. name)
   end
-  if (not os.getenv("LOAD_PLUGIN_FAILS_SILENTLY") == "true")  then
+  if (not os.getenv("LOAD_PLUGIN_FAILS_SILENTLY") == "true") then
     print(err)
   end
 end
