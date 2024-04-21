@@ -32,7 +32,6 @@ end
 loadPlugin('plugins')
 require('core.settings')
 loadPlugin('keybindings.general')
-loadPlugin('keybindings.comment')
 loadPlugin('lsp.lsp')
 loadPlugin('globals.globals')
 loadPlugin('documentation.loadDocumentation')
