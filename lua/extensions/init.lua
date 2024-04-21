@@ -1,6 +1,5 @@
 require('extensions.nvimTree').setup()
 require('extensions.treesitter').setup()
-require('extensions.treesitter-context').setup()
 require('extensions.telescope').setup()
 require('extensions.surround').setup()
 require('extensions.nvimTmuxNavigation').setup()
