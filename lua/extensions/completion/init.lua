@@ -1,9 +1,5 @@
 local cmpSettings = require('extensions.completion.cmp')
 
--- load in snippet plugin packs (mainly just rafamadriz/friendly-snippets for now)
--- other snippets can be defined by the user
-local luasnip = require("luasnip.loaders.from_vscode")
-luasnip.lazy_load()
 
 local M = {}
 
@@ -18,10 +14,15 @@ function M.setup()
     return
   end
 
+  local ls = require("luasnip")
+  ls.config.set_config {
+    history = true,
+  }
+
   cmp.setup({
     snippet = {
       expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+        ls.lsp_expand(args.body)
       end,
     },
     -- define how windows should look
@@ -31,6 +32,9 @@ function M.setup()
     -- the different sources for completion
     sources = cmp.config.sources(cmpSettings.sources)
   })
+  -- load in snippet plugin packs (mainly just rafamadriz/friendly-snippets for now)
+  -- other snippets can be defined by the user
+  require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M

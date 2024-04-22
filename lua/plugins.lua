@@ -96,13 +96,11 @@ return packer.startup(function(use)
   }
   use {
     'L3MON4D3/LuaSnip',
-    config = function()
-      require('luasnip').config.set_config {
-        history = true,
-      }
-      require('luasnip.loaders.from_vscode').load {}
-    end,
-    branch = 'master'
+    branch = 'master',
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "saadparwaiz1/cmp_luasnip"
+    },
   } -- snippets engine for nvim-cmp
   use {
     'rafamadriz/friendly-snippets',
