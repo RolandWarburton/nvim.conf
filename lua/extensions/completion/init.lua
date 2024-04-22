@@ -1,11 +1,20 @@
 local cmpSettings = require('extensions.completion.cmp')
 
-
 local M = {}
 
 -- changes the behavior about the completion pop ups
 -- see :help completeopt
 vim.o.completeopt = "menu,menuone,noselect"
+
+
+local ls = require("luasnip")
+ls.config.set_config {
+  history = true,
+}
+
+-- load in snippet plugin packs (mainly just rafamadriz/friendly-snippets for now)
+-- other snippets can be defined by the user
+require("luasnip.loaders.from_vscode").lazy_load()
 
 function M.setup()
   local cmp = require('cmp')
@@ -13,11 +22,6 @@ function M.setup()
     vim.api.nvim_err_writeln('CMP failed to load')
     return
   end
-
-  local ls = require("luasnip")
-  ls.config.set_config {
-    history = true,
-  }
 
   cmp.setup({
     snippet = {
@@ -32,9 +36,6 @@ function M.setup()
     -- the different sources for completion
     sources = cmp.config.sources(cmpSettings.sources)
   })
-  -- load in snippet plugin packs (mainly just rafamadriz/friendly-snippets for now)
-  -- other snippets can be defined by the user
-  require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M
