@@ -85,7 +85,7 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', ':lua Toggle_format_on_sa
 vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>', {})
 
 -- create a qa! alias
-map('n', '<Leader>qq', ':qa<cr>')
+map('n', '<Leader>qq', ':qa!<cr>')
 
 -- git blame via gitsigns.nvim plugin
 map('n', '<leader>gb', ':Gitsigns blame_line<cr>')
