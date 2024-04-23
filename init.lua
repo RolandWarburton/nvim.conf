@@ -3,8 +3,8 @@ local home = require 'os'.getenv('HOME')
 local ini = require 'inifile'
 local config = ini.parse(home .. '/.config/nvim/config.ini')['config']
 
-require('theme').setup()
 require('plugins')
+require('theme').setup()
 require('core.settings')
 require('keybindings.general')
 require('lsp.lsp')
