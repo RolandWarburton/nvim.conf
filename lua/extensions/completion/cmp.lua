@@ -1,5 +1,6 @@
 local M = {}
 local cmp = require('cmp')
+local ls = require('luasnip')
 
 -- util function for tabbing through nvim-cmp suggestions
 -- taken from https://github.com/GabrieleStulzer/dotfiles/blob/master/.config/nvim/lua/plugins/nvim-cmp.lua
@@ -19,6 +20,8 @@ M.mapping = {
   ["<Tab>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
+    elseif ls.expand_or_jumpable() then
+      ls.expand_or_jump()
     elseif has_words_before() then
       cmp.complete()
     else
