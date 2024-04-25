@@ -9,6 +9,7 @@
 --   term_mode         = "t",
 --   command_mode      = "c",
 
+require('keybindings.util.selectLastWindow')
 -- some shortcuts to make the conf file more clean
 local opts = { noremap = true, silent = true }
 local function map(mode, l, r, opts)
@@ -157,3 +158,6 @@ end
 vim.api.nvim_create_user_command('CopyBufferToClipboard', ':lua CopyBufferToClipboard()<cr>', {})
 vim.api.nvim_create_user_command('InsertDate', ':lua InsertDate(false)<cr>', {})
 vim.api.nvim_create_user_command('InsertDateTime', ':lua InsertDate(true)<cr>', {})
+
+-- Set the keybinding to go to the last window ID
+vim.keymap.set('n', '<Leader>w', ':lua Go_to_last_window()<cr>')
