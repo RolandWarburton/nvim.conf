@@ -27,5 +27,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+
+    -- create a custom command to "format the file"
+    vim.api.nvim_create_user_command('FormatFile', ':lua vim.lsp.buf.formatting()<cr>', {})
+
+    -- create a custom command to rename symbols
+    vim.api.nvim_create_user_command('RenameSymbol', ':lua vim.lsp.buf.rename()<cr>', {})
   end,
 })

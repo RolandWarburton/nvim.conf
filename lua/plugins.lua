@@ -17,10 +17,6 @@ require("lazy").setup({
   },
   {
     "folke/twilight.nvim",
-    opts = {
-      treesitter = true,
-      exclude = { 'md' }
-    }
   },
   {
     'neovim/nvim-lspconfig',

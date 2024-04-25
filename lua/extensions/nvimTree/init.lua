@@ -99,4 +99,11 @@ function M.setup()
   })
 end
 
+function M.keybindings()
+  -- nvim tree find file
+  Map('n', '<Leader>f', ':NvimTreeFindFile<cr>')
+  -- nvim tree toggle file tree
+  Map('n', '<Leader>e', ':NvimTreeToggle<cr>')
+end
+
 return M

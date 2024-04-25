@@ -45,4 +45,33 @@ function M.setup()
   )
 end
 
+function M.keybindings()
+  -- jump navigation
+  Map('n', ']c', ':Gitsigns next_hunk<cr>')
+  Map('n', '[c', ':Gitsigns prev_hunk<cr>')
+  Map('v', ']c', ':Gitsigns select_hunk<cr>')
+  Map('v', '[c', ':Gitsigns select_hunk<cr>')
+
+  -- staging hunks
+  Map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<cr>')
+  Map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<cr>')
+  Map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
+
+  -- git diffs
+  Map('n', '<leader>hd', ':Gitsigns diffthis<cr>')
+  Map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
+
+  -- git blame via gitsigns.nvim plugin
+  Map('n', '<leader>gb', ':Gitsigns blame_line<cr>')
+
+  -- git preview hunk
+  Map('n', '<leader>gp', ':Gitsigns preview_hunk<cr>')
+
+  -- git toggle to show deleted lines
+  vim.api.nvim_create_user_command('GitToggleShowDeletedLines', ':Gitsigns toggle_deleted<cr>', {})
+
+  -- git open diff for the current file
+  vim.api.nvim_create_user_command('GitOpenDiff', ':Gitsigns diffthis<cr>', {})
+end
+
 return M
