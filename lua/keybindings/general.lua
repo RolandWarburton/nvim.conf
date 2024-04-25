@@ -10,6 +10,8 @@
 --   command_mode      = "c",
 
 require('keybindings.util.selectLastWindow')
+require('keybindings.util.toggleVirtSpaceChar')
+
 -- some shortcuts to make the conf file more clean
 local opts = { noremap = true, silent = true }
 local function map(mode, l, r, opts)
@@ -121,16 +123,6 @@ map('n', '<leader>td', ':Gitsigns toggle_deleted<cr>')
 
 -- toggle twilight
 map('n', '<leader>z', ':Twilight<cr>')
-
--- toggle the space virtual text
-function Toggle_listchar()
-  local listchars = vim.opt.listchars:get()
-  if listchars.space == Listchars.space then
-    vim.opt.listchars:append({ space = " " })
-  else
-    vim.opt.listchars = Listchars
-  end
-end
 
 vim.api.nvim_create_user_command('ToggleSpaceVirtText', ':lua Toggle_listchar()<cr>', {})
 
