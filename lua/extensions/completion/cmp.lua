@@ -1,6 +1,7 @@
 local M = {}
 local cmp = require('cmp')
 local ls = require('luasnip')
+local lspkind = require('lspkind')
 
 -- util function for tabbing through nvim-cmp suggestions
 -- taken from https://github.com/GabrieleStulzer/dotfiles/blob/master/.config/nvim/lua/plugins/nvim-cmp.lua
@@ -48,6 +49,41 @@ M.sources = {
 M.window = {
   completion = cmp.config.window.bordered(),
   documentation = cmp.config.window.bordered(),
+}
+
+M.Formatting = {
+  format = lspkind.cmp_format({
+    mode = "symbol_text",
+    max_width = 50,
+    symbol_map = {
+      Text = "󰉿",
+      Method = "󰆧",
+      Function = "󰊕",
+      Constructor = "",
+      Field = "󰜢",
+      Variable = "󰀫",
+      Class = "󰠱",
+      Interface = "",
+      Module = "",
+      Property = "󰜢",
+      Unit = "󰑭",
+      Value = "󰎠",
+      Enum = "",
+      Keyword = "󰌋",
+      Snippet = "",
+      Color = "󰏘",
+      File = "󰈙",
+      Reference = "󰈇",
+      Folder = "󰉋",
+      EnumMember = "",
+      Constant = "󰏿",
+      Struct = "󰙅",
+      Event = "",
+      Operator = "󰆕",
+      TypeParameter = "",
+      Copilot = "",
+    }
+  })
 }
 
 return M

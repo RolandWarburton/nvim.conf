@@ -133,5 +133,6 @@ require("lazy").setup({
     'leoluz/nvim-dap-go'
   },
   { 'RRethy/vim-illuminate' },
-  { 'alexghergh/nvim-tmux-navigation' }
+  { 'alexghergh/nvim-tmux-navigation' },
+  { "onsails/lspkind.nvim" }
 })

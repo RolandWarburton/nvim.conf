@@ -30,6 +30,7 @@ function M.setup()
         ls.lsp_expand(args.body)
       end,
     },
+    formatting = cmpSettings.Formatting,
     -- define how windows should look
     window = cmpSettings.window,
     -- key binds for nvim-cmp
