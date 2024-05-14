@@ -1,6 +1,7 @@
 local dap = require("dap")
 local dapUI = require('debugging.dap-ui-config')
 local dapKeybinds = require('debugging.dap-keybindings')
+local dapVirtualText = require('debugging.dap-virtual-text')
 
 --
 -- load language configurations
@@ -17,3 +18,4 @@ dap.configurations.go = go_config.configurations
 dapKeybinds.setup()
 -- setup dap ui
 dapUI.setup()
+dapVirtualText.setup()
