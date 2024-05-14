@@ -121,6 +121,7 @@ require("lazy").setup({
   },
   {
     'mfussenegger/nvim-dap',
+    dependencies = 'anuvyklack/hydra.nvim',
   },
   {
     "rcarriga/nvim-dap-ui",
