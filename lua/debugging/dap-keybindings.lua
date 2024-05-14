@@ -3,8 +3,8 @@ local function setup()
   Hydra({
     name = "Debugging",
     hint = [[
-    _l_ Run Last
-    _b_ Toggle Breakpoint
+    _K_ Hover
+    _o_ Toggle Breakpoint
     _d_ Start Debugging
     _t_ Stop Debugging
     _r_ heads Debugging
@@ -12,6 +12,7 @@ local function setup()
     _i_ Step Into
     _p_ Step Out
     _c_ Continue
+    _n_ Open Debugger
     _q_ Close Debugger
     ]],
     config = {
@@ -24,8 +25,8 @@ local function setup()
     mode = 'n',
     body = '<leader>x',
     heads = {
-      { 'l',     function() require('dap').run_last() end },
-      { 'b',     function() require('dap').toggle_breakpoint() end },
+      { 'K',     function() require('dap.ui.widgets').hover() end },
+      { 'o',     function() require('dap').toggle_breakpoint() end },
       { 'd',     function() require('dap').continue() end },
       { 't',     function() require('dap').close() end },
       { 'r',     function() require('dap').restart() end },
@@ -34,6 +35,7 @@ local function setup()
       { 'p',     function() require('dap').step_out() end },
       { 'c',     function() require('dap').continue() end },
       { 'q',     function() require('dapui').close() end },
+      { 'n',     function() require('dapui').open() end },
       { '<Esc>', nil,                                              { exit = true } },
     }
   })
