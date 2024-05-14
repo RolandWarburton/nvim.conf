@@ -117,9 +117,6 @@ require("lazy").setup({
     'p00f/nvim-ts-rainbow',
   },
   {
-    'ggandor/leap.nvim',
-  },
-  {
     'mfussenegger/nvim-dap',
     dependencies = 'anuvyklack/hydra.nvim',
   },
