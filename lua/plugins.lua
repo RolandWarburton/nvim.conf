@@ -116,6 +116,7 @@ require("lazy").setup({
   {
     'p00f/nvim-ts-rainbow',
   },
+  { 'norcalli/nvim-colorizer.lua' },
   {
     'mfussenegger/nvim-dap',
     dependencies = 'anuvyklack/hydra.nvim',
