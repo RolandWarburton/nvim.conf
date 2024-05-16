@@ -1,5 +1,15 @@
 local M = {}
-M.theme = 'dark'
+local inifile = require("inifile")
+
+-- get the config.ini file path
+local home_dir = os.getenv("HOME") or os.getenv("USERPROFILE")
+local config_path = home_dir .. "/.config/nvim/config.ini"
+
+-- parse the config.ini file to determine the default theme
+local config = inifile.parse(config_path)
+local theme = config.config.theme
+
+M.theme = theme or 'dark'
 
 function M.setup()
   local theme_opts = {}
