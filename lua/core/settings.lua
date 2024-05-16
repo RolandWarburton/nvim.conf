@@ -1,6 +1,5 @@
 -- require('core.settings.tabs').setup()
 require('core.settings.tabline').setup()
-require('core.settings.color').setup()
 require('core.settings.editor').setup()
 require('core.settings.statusline').setup()
 require('core.settings.listchars').setup()

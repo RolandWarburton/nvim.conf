@@ -42,6 +42,7 @@ function M.setup()
   if ok then
     vscode.setup(opts)
     require('vscode').load()
+    require('theme.color').setup()
   end
 end
 
