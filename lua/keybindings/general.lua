@@ -23,6 +23,7 @@ require('extensions.gitsigns').keybindings()
 require('extensions.neogit').keybindings()
 require('extensions.nvimTree').keybindings()
 require('extensions.twilight').keybindings()
+require('theme').keybindings()
 
 ---------------------
 -- EDITOR KEYBINDINGS
