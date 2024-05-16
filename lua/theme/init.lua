@@ -55,7 +55,7 @@ function M.toggleTheme()
 end
 
 function M.keybindings()
-
+  vim.api.nvim_create_user_command('ToggleTheme', M.toggleTheme, {})
 end
 
 return M
