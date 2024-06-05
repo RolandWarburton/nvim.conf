@@ -88,6 +88,12 @@ function M.setup()
   -- disable the close (X) button on vim tab line
   vim.cmd('set guioptions-=e')
 
+  -- disable provider.perl
+  vim.api.nvim_set_var("loaded_perl_provider", 0)
+
+  -- disable provider.python3
+  vim.api.nvim_set_var("loaded_python3_provider", 0)
+
   -- copy as root
   local function copy_as_root()
     local user = os.getenv("USER")
