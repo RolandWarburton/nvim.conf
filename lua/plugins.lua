@@ -114,6 +114,9 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter-context',
   },
   {
+    'nvim-focus/focus.nvim'
+  },
+  {
     'hiphish/rainbow-delimiters.nvim',
   },
   { 'norcalli/nvim-colorizer.lua' },
