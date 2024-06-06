@@ -46,19 +46,10 @@ function M.setup()
       -- Instead of true it can also be a list of languages
       additional_vim_regex_highlighting = false,
     },
-    -- https://github.com/p00f/nvim-ts-rainbow
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = 9999,
-      colors = {
-        -- vsc brackets colorizer 2 theme
-        "#EAC502",
-        "#DA70D6",
-        "#179CFB",
-      },
-    }
   }
+
+  local rainbow = require('extensions.treesitter.rainbow')
+  rainbow.setup()
 end
 
 return M

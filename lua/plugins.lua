@@ -114,7 +114,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter-context',
   },
   {
-    'p00f/nvim-ts-rainbow',
+    'hiphish/rainbow-delimiters.nvim',
   },
   { 'norcalli/nvim-colorizer.lua' },
   {
