@@ -5,7 +5,7 @@ local config = ini.parse(home .. '/.config/nvim/config.ini')['config']
 
 require('plugins')
 require('theme').setup()
--- require('util.helpers')
+require('util.helpers')
 require('core.settings')
 require('keybindings.general')
 require('lsp.lsp')
