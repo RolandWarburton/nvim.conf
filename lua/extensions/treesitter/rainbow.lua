@@ -23,8 +23,6 @@ function M.setup()
       'RainbowDelimiterYellow',
       'RainbowDelimiterBlue',
       'RainbowDelimiterOrange',
-      'RainbowDelimiterGreen',
-      'RainbowDelimiterViolet',
       'RainbowDelimiterCyan',
     },
   }
