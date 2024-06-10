@@ -4,6 +4,9 @@ function M.setup()
   -- GENERAL SETTINGS
   local home = require 'os'.getenv('HOME')
 
+  -- ensure filetype detection is turned on
+  vim.opt.filetype = "on"
+
   -- show a column bar to suggest the line length
   vim.opt.colorcolumn = "100"
 
