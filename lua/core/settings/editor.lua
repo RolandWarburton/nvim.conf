@@ -24,12 +24,6 @@ function M.setup()
   -- relative number lines
   vim.opt.relativenumber = true
 
-  -- tree-sitter based folding
-  vim.wo.foldmethod = 'expr'
-  vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-  vim.opt.foldlevelstart = 99
-  vim.cmd('let g:markdown_folding = 1')
-
   -- ignore case for grep
   vim.opt.ignorecase = true
 
