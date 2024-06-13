@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   require('telescope').setup {
     pickers = {
+      find_files = {
+        hidden = true
+      },
       buffers = {
         mappings = {
           i = {
