@@ -60,6 +60,16 @@ Map('n', '<Leader>9', '9gt')
 -- create a "quit all" alias
 Map('n', '<Leader>qq', ':qa!<cr>')
 
+-- move lines around in visual mode
+Map("v", "J", ":m '>+1<cr>gv=gv")
+Map("v", "K", ":m '<-2<cr>gv=gv")
+
+-- re-size with the arrow keys
+Map("n", "<down>", ":resize +2<cr>")
+Map("n", "<up>", ":resize -2<cr>")
+Map("n", "<right>", ":vertical resize +2<cr>")
+Map("n", "<left>", ":vertical resize -2<cr>")
+
 ----------------
 -- USER COMMANDS
 ----------------
