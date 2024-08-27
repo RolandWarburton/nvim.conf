@@ -1,5 +1,15 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+local fs_stat = (vim.uv or vim.loop).fs_stat(lazypath)
+
+-- check if lazy directory is empty
+local function is_directory_empty(dir)
+  local handle = vim.loop.fs_scandir(dir)
+  if not handle then return true end
+  return vim.loop.fs_scandir_next(handle) == nil
+end
+
+-- check if lazy path exists and is not empty
+if not fs_stat or (fs_stat.type == "directory" and is_directory_empty(lazypath)) then
   vim.fn.system({
     "git",
     "clone",
