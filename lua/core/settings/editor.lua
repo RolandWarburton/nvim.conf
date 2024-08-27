@@ -30,6 +30,9 @@ function M.setup()
   -- shows better messages
   vim.opt.cmdheight = 1
 
+  -- allow terminal colors
+  vim.opt.termguicolors = true
+
   -- enable native spell checking
   vim.cmd('set spell spelllang=en_us')
   vim.cmd('set spellfile=' .. home .. '/.config/nvim/spell/en.utf-8.add')
