@@ -1,6 +1,7 @@
 require('extensions.nvimTree').setup()
 require('extensions.treesitter').setup()
 require('extensions.telescope').setup()
+require('extensions.tinygo').setup()
 require('extensions.surround').setup()
 require('extensions.nvimTmuxNavigation').setup()
 require('extensions.null-ls').setup()

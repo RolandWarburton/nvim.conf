@@ -147,5 +147,8 @@ require("lazy").setup({
   },
   { 'RRethy/vim-illuminate' },
   { 'alexghergh/nvim-tmux-navigation' },
+  {
+    "pcolladosoto/tinygo.nvim",
+  },
   { "onsails/lspkind.nvim" }
 })
