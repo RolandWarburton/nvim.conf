@@ -1,7 +1,7 @@
 local yaml = require('lyaml')
 
-local home = require 'os'.getenv('HOME')
-_G.neovim_config = yaml.load(io.open("config.yaml"):read("*a"))
+local config = io.open("config.yaml"):read("*a")
+_G.neovim_config = yaml.load(config)
 
 require('plugins')
 require('theme').setup()
