@@ -1,7 +1,7 @@
-local home = require 'os'.getenv('HOME')
+local yaml = require('lyaml')
 
-local ini = require 'inifile'
-local config = ini.parse(home .. '/.config/nvim/config.ini')['config']
+local home = require 'os'.getenv('HOME')
+_G.neovim_config = yaml.load(io.open("config.yaml"):read("*a"))
 
 require('plugins')
 require('theme').setup()
