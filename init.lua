@@ -1,6 +1,7 @@
 local yaml = require('lyaml')
 
-local config = io.open("config.yaml"):read("*a")
+local home = os.getenv("HOME")
+local config = io.open(home .. "/.config/nvim/config.yaml"):read("*a")
 _G.neovim_config = yaml.load(config)
 
 require('plugins')
