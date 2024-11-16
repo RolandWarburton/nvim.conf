@@ -1,7 +1,6 @@
 require('extensions.nvimTree').setup()
 require('extensions.treesitter').setup()
 require('extensions.telescope').setup()
-require('extensions.tinygo').setup()
 require('extensions.surround').setup()
 require('extensions.nvimTmuxNavigation').setup()
 require('extensions.null-ls').setup()
@@ -19,4 +18,7 @@ require('extensions.venn').setup()
 require('extensions.twilight').setup()
 require('extensions.colorizer').setup()
 require('extensions.focus').setup()
+if _G.neovim_config.extensions.enable_tiny_go then
+  require('extensions.tinygo').setup()
+end
 -- require('extensions.maximize').setup()

@@ -1,0 +1,5 @@
+settings:
+  enable_presence: false
+  theme: dark
+extensions:
+  enable_tiny_go: false
