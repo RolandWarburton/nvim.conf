@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- javascript/typescript
-require 'lspconfig'.tsserver.setup {
+require 'lspconfig'.ts_ls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   cmd = { "typescript-language-server", "--stdio" },
