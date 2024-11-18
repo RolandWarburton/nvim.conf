@@ -1,7 +1,10 @@
 require 'lsp.keybindings'
 
+local home = os.getenv("HOME")
+home = home == nil and "/home/roland" or home
+
 -- set the debug level for lsp
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("warn")
 
 -- we need this for lsp servers
 -- it allows us to define what files define the root of a project
@@ -75,27 +78,27 @@ require 'lspconfig'.lua_ls.setup {
         -- (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
         path = {
-          "./?.lua",                                         -- Current directory
-          "/usr/local/share/lua/5.1/?.lua",                  -- Local share
-          "/usr/local/share/lua/5.1/?/init.lua",             -- Local share init
-          "/usr/local/lib/lua/5.1/?.lua",                    -- Local lib
-          "/usr/local/lib/lua/5.1/?/init.lua",               -- Local lib init
-          "/usr/share/lua/5.1/?.lua",                        -- System share
-          "/usr/share/lua/5.1/?/init.lua",                   -- System share init
-          "/home/roland/.luarocks/share/lua/5.1/?.lua",      -- Luarocks for user
-          "/home/roland/.luarocks/share/lua/5.1/?/init.lua", -- Luarocks user init
-          "/home/roland/.luarocks/share/lua/5.1/script-utils/init.lua",
+          "./?.lua",                                     -- Current directory
+          home .. "/.luarocks/share/lua/5.1/?/init.lua", -- Luarocks user init
         }
       },
       cmd = {
         "/home/roland/.local/bin/lua-language-server",
       },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {
+          'vim',
+          'require'
+        },
+      },
       -- Make the server aware of Neovim runtime files
+      -- also include user defined files
       workspace = {
-        checkThirdParty = true,
+        checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME,
-          "/home/roland/.luarocks/share/lua/5.1"
+          home .. "/.luarocks/share/lua/5.1"
         },
       }
     })
