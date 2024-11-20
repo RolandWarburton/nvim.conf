@@ -75,10 +75,6 @@ function M.setup()
   -- allow use of mouse
   vim.opt.mouse = 'a'
 
-  -- use tree-sitter for folding
-  vim.opt.foldmethod = "expr"
-  vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
   -- highlight the current line
   vim.opt.cursorline = true
 
