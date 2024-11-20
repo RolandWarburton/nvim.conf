@@ -2,10 +2,8 @@ local M = {}
 
 function M.setup()
   -- tree-sitter based folding
-  vim.wo.foldmethod = 'expr'
-  vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-  vim.opt.foldlevelstart = 99
-  vim.cmd('let g:markdown_folding = 1')
+  vim.opt.foldmethod = "expr"
+  vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
   -- set up folds to persist through restarts
   -- neovim will create a "view" for a buffer when closing it, then try to load it when you oad the same buffer
