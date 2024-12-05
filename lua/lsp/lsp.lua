@@ -27,7 +27,18 @@ require 'lspconfig'.ts_ls.setup {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   init_options = { hostInfo = "neovim" },
-  root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+  root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
+  single_file_support = false -- stops ts_ls messing with deno
+}
+
+-- deno
+require 'lspconfig'.denols.setup {
+  cmd = { home .. "/.deno/bin/deno", "lsp" },
+  init_options = {
+    lint = true,
+    unstable = true,
+  },
+  root_dir = root_pattern("deno.json", "deno.jsonc"),
 }
 
 -- GOLANG
