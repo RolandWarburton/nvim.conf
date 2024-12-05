@@ -6,11 +6,9 @@ home = home == nil and "/home/roland" or home
 -- set the debug level for lsp
 vim.lsp.set_log_level("warn")
 
--- we need this for lsp servers
--- it allows us to define what files define the root of a project
-local root_pattern = require("lspconfig").util.root_pattern
-
+-- define some shorthand
 local lsp_config = require('lspconfig')
+local root_pattern = require("lspconfig").util.root_pattern
 
 -- feed lsp into the completion engine
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -47,7 +45,7 @@ lsp_config.gopls.setup {
   on_attach = on_attach,
   cmd = { "gopls", "serve" },
   filetypes = { "go", "gomod" },
-  root_dir = lsp_config.util.root_pattern("go.work", "go.mod", ".git"),
+  root_dir = root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
       analyses = {
@@ -94,7 +92,7 @@ require 'lspconfig'.lua_ls.setup {
         }
       },
       cmd = {
-        "/home/roland/.local/bin/lua-language-server",
+        home .. "/.local/bin/lua-language-server",
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
