@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   -- null-ls configuration
 
+  local home = os.getenv("HOME")
+  home = home == nil and "/home/roland" or home
+
   -- you can check if you have a linter installed for a language by running
   -- (for example to check eslint) :echo executable('eslint')
   -- 1 indicates it is present
@@ -12,13 +15,22 @@ function M.setup()
   local diagnostics = null_ls.builtins.diagnostics
   local code_actions = null_ls.builtins.code_actions
 
+  -- returns boolean if this looks like a node environment
+  local is_node_root = function(utils)
+    return utils.root_has_file({ "package.json" })
+  end
+
   local sources = {
     -------------------------------------------------------------------------------------------------
     -- JAVASCRIPT/TYPESCRIPT ------------------------------------------------------------------------
     -------------------------------------------------------------------------------------------------
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#eslint=
-    diagnostics.eslint,
-    code_actions.eslint,
+    diagnostics.eslint.with({
+      condition = is_node_root,
+    }),
+    code_actions.eslint.with({
+      condition = is_node_root
+    }),
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#prettier=
     formatting.prettier,
     -------------------------------------------------------------------------------------------------
@@ -30,7 +42,7 @@ function M.setup()
         return {
           "--stdin",
           "--config",
-          require 'os'.getenv('HOME') .. "/.config/nvim/conf/markdownlint.json"
+          home .. "/.config/nvim/conf/markdownlint.json"
         }
       end
     }),
@@ -53,7 +65,7 @@ function M.setup()
           "--ext",
           ".",
           "--config",
-          require 'os'.getenv('HOME') .. "/.config/vale/vale.ini",
+          home .. "/.config/vale/vale.ini",
           vim.fn.expand('%:p') -- prints the absolute file path
         }
       end
