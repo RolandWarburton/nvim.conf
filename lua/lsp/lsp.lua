@@ -29,6 +29,12 @@ require 'lspconfig'.ts_ls.setup {
   single_file_support = false -- stops ts_ls messing with deno
 }
 
+require 'lspconfig'.ccls.setup {
+  single_file_support = true,
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
 -- deno
 require 'lspconfig'.denols.setup {
   cmd = { home .. "/.deno/bin/deno", "lsp" },

@@ -99,6 +99,17 @@ function M.setup()
   null_ls.setup({
     debug = true,
     sources = sources,
+    on_attach = function(client, bufnr)
+      -- C and C++ seems to cause issues with null-ls
+      -- so i just disabled it
+      local ft = vim.bo[bufnr].filetype
+      if ft == "c" or ft == "cpp" then
+        client.stop()
+        return
+      end
+
+      -- Add other on_attach logic here if needed
+    end,
   })
 end
 
