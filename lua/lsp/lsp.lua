@@ -33,6 +33,13 @@ require 'lspconfig'.ccls.setup {
   single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
+  filetype = { "c", "cpp", "objc", "objcpp" },
+  compilationDatabaseDirectory = "build",
+init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
 }
 
 -- deno
