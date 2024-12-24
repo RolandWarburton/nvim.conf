@@ -48,9 +48,6 @@ function M.setup()
   vim.opt.splitright = true
   vim.opt.splitbelow = true
 
-  -- use the clipboard for ALL operations (instead of having to use + register)
-  vim.opt.clipboard = 'unnamedplus'
-
   -- disable word wrap
   vim.opt.wrap = false
 
