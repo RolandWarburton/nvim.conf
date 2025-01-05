@@ -17,7 +17,6 @@ require('extensions.autopairs').setup()
 require('extensions.venn').setup()
 require('extensions.twilight').setup()
 require('extensions.colorizer').setup()
-require('extensions.focus').setup()
 if _G.neovim_config.extensions.enable_tiny_go then
   require('extensions.tinygo').setup()
 end
