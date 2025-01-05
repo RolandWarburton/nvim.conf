@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- javascript/typescript
-require 'lspconfig'.ts_ls.setup {
+lsp_config.ts_ls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   cmd = { "typescript-language-server", "--stdio" },
@@ -29,7 +29,7 @@ require 'lspconfig'.ts_ls.setup {
   single_file_support = false -- stops ts_ls messing with deno
 }
 
-require 'lspconfig'.ccls.setup {
+lsp_config.ccls.setup {
   single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
@@ -43,7 +43,7 @@ init_options = {
 }
 
 -- deno
-require 'lspconfig'.denols.setup {
+lsp_config.denols.setup {
   cmd = { home .. "/.deno/bin/deno", "lsp" },
   init_options = {
     lint = true,
@@ -70,7 +70,7 @@ lsp_config.gopls.setup {
 }
 
 -- HTML
-require 'lspconfig'.html.setup {
+lsp_config.html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "html" },
@@ -85,7 +85,7 @@ require 'lspconfig'.html.setup {
 }
 
 -- LUA
-require 'lspconfig'.lua_ls.setup {
+lsp_config.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
