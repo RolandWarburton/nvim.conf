@@ -52,23 +52,23 @@ function M.setup()
   -- https://github.com/alacritty/alacritty/issues/8376
   -- as we can assume that neovim is running in a TUI environment
   -- see :help clipboard-osc52
-  if (vim.fn.TMUX) then
-    -- neovim and tmux fails to work correctly here but this seems to work
-    if not vim.fn.system('which wl-copy') ~= '' then
-      vim.opt.clipboard:append('unnamedplus')
-      vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-          ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-          ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-        },
-      }
-    end
-end
+  if not vim.fn.executable('wl-copy') then
+    vim.g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      },
+      paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      },
+    }
+    vim.opt.clipboard:append('unnamedplus')
+  elseif (vim.fn.TMUX) then
+    -- tmux fails to set the clipboard-tool correctly
+    vim.opt.clipboard:append('unnamedplus')
+  end
 
   -- disable word wrap
   vim.opt.wrap = false
