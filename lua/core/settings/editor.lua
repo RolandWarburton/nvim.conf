@@ -48,27 +48,24 @@ function M.setup()
   vim.opt.splitright = true
   vim.opt.splitbelow = true
 
-  -- manually set OSC 52 escape code and clipboard-tool if wl-copy is not installed
-  -- https://github.com/alacritty/alacritty/issues/8376
-  -- as we can assume that neovim is running in a TUI environment
-  -- see :help clipboard-osc52
-  if (vim.fn.TMUX) then
-    -- neovim and tmux fails to work correctly here but this seems to work
-    if not vim.fn.system('which wl-copy') ~= '' then
-      vim.opt.clipboard:append('unnamedplus')
-      vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-          ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-          ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-        },
+  -- vim.opt.clipboard = "unnamedplus"
+  if not os.getenv("SSH_TTY") then
+    vim.opt.clipboard = "unnamedplus"
+  else
+    -- vim.opt.clipboard = ""
+    vim.o.clipboard = "unnamedplus"
+    vim.g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      },
+      paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
       }
-    end
-end
+    }
+  end
 
   -- disable word wrap
   vim.opt.wrap = false
