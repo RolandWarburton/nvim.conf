@@ -101,10 +101,10 @@ function M.setup()
   vim.cmd('set guioptions-=e')
 
   -- md fences using ```javascript will be highlighted with JS
-vim.g.markdown_fenced_languages = {
-  "javascript=js",
-  "typescript=ts"
-}
+  vim.g.markdown_fenced_languages = {
+    "javascript=js",
+    "typescript=ts"
+  }
 
   -- disable provider.perl
   vim.api.nvim_set_var("loaded_perl_provider", 0)
