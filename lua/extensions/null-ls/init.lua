@@ -24,15 +24,16 @@ function M.setup()
     -------------------------------------------------------------------------------------------------
     -- JAVASCRIPT/TYPESCRIPT ------------------------------------------------------------------------
     -------------------------------------------------------------------------------------------------
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#eslint=
     diagnostics.eslint.with({
       condition = is_node_root,
     }),
     code_actions.eslint.with({
       condition = is_node_root
     }),
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#prettier=
-    formatting.prettier,
+    -- formatting.prettier.with({
+    --   condition = is_node_root
+    -- }),
+    formatting.deno_fmt,
     -------------------------------------------------------------------------------------------------
     -- MARKDOWN -------------------------------------------------------------------------------------
     -------------------------------------------------------------------------------------------------
