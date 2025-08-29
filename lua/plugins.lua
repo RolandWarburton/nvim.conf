@@ -84,6 +84,10 @@ require("lazy").setup({
     'windwp/nvim-autopairs',
   },
   {
+    "mason-org/mason.nvim",
+    opts = {}
+  },
+  {
     'kylechui/nvim-surround',
   },
   {
