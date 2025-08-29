@@ -68,6 +68,7 @@ require("lazy").setup({
   },
   {
     'ray-x/lsp_signature.nvim',
+    event = "InsertEnter",
   },
   {
     'L3MON4D3/LuaSnip',
