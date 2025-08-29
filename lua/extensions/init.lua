@@ -8,7 +8,7 @@ require('extensions.null-ls').setup()
 require('extensions.neogit').setup()
 require('extensions.neoclip').setup()
 require('extensions.illuminate').setup()
-require('extensions.hydra').setup()
+-- require('extensions.hydra').setup() -- disabled due to bug see issue 60
 require('extensions.gitsigns').setup()
 require('extensions.comment-highlight').setup()
 require('extensions.completion').setup()
