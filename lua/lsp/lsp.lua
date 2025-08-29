@@ -38,6 +38,7 @@ vim.lsp.config('lua_ls', {
         library = {
           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
           [vim.fn.stdpath("config") .. "/lua"] = true,
+          [vim.fn.expand("$HOME/.local/luarocks/5.1")] = true,
         },
       },
     },
