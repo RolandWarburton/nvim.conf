@@ -4,7 +4,7 @@ require('extensions.telescope').setup()
 require('extensions.surround').setup()
 require('extensions.mason').setup()
 require('extensions.nvimTmuxNavigation').setup()
-require('extensions.null-ls').setup()
+--require('extensions.null-ls').setup() -- depricated
 require('extensions.neogit').setup()
 require('extensions.neoclip').setup()
 require('extensions.illuminate').setup()
