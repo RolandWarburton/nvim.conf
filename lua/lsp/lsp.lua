@@ -27,6 +27,9 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
+---------------------
+-- lsp configurations
+---------------------
 
 vim.lsp.config('lua_ls', {
   settings = {
@@ -46,144 +49,18 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
+vim.lsp.config('denols', {})
+vim.lsp.enable('denols')
 
-------------------------------------
--- OLD LSP CONFIGS
--- TO REDO WITH NEW API WHEN NEEDED
-------------------------------------
+-- ts_ls: denols seems to handle most typescript projects
+-- vim.lsp.config('ts_ls', {})
+-- vim.lsp.enable('ts_ls')
 
--- -- javascript/typescript
--- lsp_config.ts_ls.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
---   cmd = { "typescript-language-server", "--stdio" },
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
---   init_options = { hostInfo = "neovim" },
---   root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
---   single_file_support = false -- stops ts_ls messing with deno
--- }
---
--- lsp_config.ccls.setup {
---   single_file_support = true,
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetype = { "c", "cpp", "objc", "objcpp" },
---   compilationDatabaseDirectory = "build",
---   init_options = {
---     cache = {
---       directory = ".ccls-cache",
---     },
---   }
--- }
---
--- -- deno
--- lsp_config.denols.setup {
---   cmd = { home .. "/.deno/bin/deno", "lsp" },
---   init_options = {
---     lint = true,
---     unstable = true,
---   },
---   root_dir = root_pattern("deno.json", "deno.jsonc"),
--- }
---
--- -- GOLANG
--- lsp_config.gopls.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
---   cmd = { "gopls", "serve" },
---   filetypes = { "go", "gomod" },
---   root_dir = root_pattern("go.work", "go.mod", ".git"),
---   settings = {
---     gopls = {
---       analyses = {
---         unusedparams = true,
---       },
---       staticcheck = true,
---     },
---   },
--- }
---
--- -- HTML
--- lsp_config.html.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
---   filetypes = { "html" },
---   init_options = {
---     configurationSection = { "html", "css", "javascript" },
---     embeddedLanguages = {
---       css = true,
---       javascript = true
---     },
---     provideFormatter = true
---   }
--- }
---
--- -- LUA
--- vim.lsp.config("lua_ls", {
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = { "vim" }
---       }
---     }
---   }
--- })
--- -- lsp_config.lua_ls.setup {
--- --   -- on_init = function(client)
--- --   --   if client.workspace_folders then
--- --   --     local path = client.workspace_folders[1].name
--- --   --     if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
--- --   --       return
--- --   --     end
--- --   --   end
--- --   --
--- --   --   client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
--- --   --     runtime = {
--- --   --       -- Tell the language server which version of Lua you're using
--- --   --       -- (most likely LuaJIT in the case of Neovim)
--- --   --       version = 'LuaJIT',
--- --   --       path = {
--- --   --         "./?.lua",                                     -- Current directory
--- --   --         home .. "/.luarocks/share/lua/5.1/?/init.lua", -- Luarocks user init
--- --   --       }
--- --   --     },
--- --   --     cmd = {
--- --   --       home .. "/.local/bin/lua-language-server",
--- --   --     },
--- --   diagnostics = {
--- --     -- Get the language server to recognize the `vim` global
--- --     globals = {
--- --       'vim',
--- --       'require'
--- --     },
--- --   },
--- --   --       -- Make the server aware of Neovim runtime files
--- --   --       -- also include user defined files
--- --   --       workspace = {
--- --   --         checkThirdParty = false,
--- --   --         library = {
--- --   --           vim.env.VIMRUNTIME,
--- --   --           home .. "/.luarocks/share/lua/5.1"
--- --   --         },
--- --   --       }
--- --   --     })
--- --   --   end,
--- --   --   settings = {
--- --   --     Lua = {}
--- --   --   }
--- -- }
---
--- -- gutter signs for LSP errors
--- local sign = function(opts)
---   vim.fn.sign_define(opts.name, {
---     texthl = opts.name,
---     text = opts.text,
---     numhl = ''
---   })
--- end
---
--- sign({ name = 'DiagnosticSignError', text = 'x' })
--- sign({ name = 'DiagnosticSignWarn', text = '▲' })
--- sign({ name = 'DiagnosticSignHint', text = '⚑' })
--- sign({ name = 'DiagnosticSignInfo', text = '»' })
---
+vim.lsp.config('ansiblels', {})
+vim.lsp.enable('ansiblels')
+
+vim.lsp.config('gopls', {})
+vim.lsp.enable('gopls')
+
+vim.lsp.config('postgres_lsp', {})
+vim.lsp.enable('postgres_lsp')
