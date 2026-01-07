@@ -19,7 +19,9 @@ Reading [On sharpening the saw](http://vimcasts.org/blog/2012/08/on-sharpening-t
 
 ## Language Servers
 
-Read `:help lsp_install` for information.
+Mason servers installed for reference.
+
+*
 
 ## Features checklist
 
