@@ -17,7 +17,8 @@ function M.setup()
       'ini',
       'markdown',
       'regex',
-      'yaml'
+      'yaml',
+      'json'
     },
     ignore_install = {},
     modules = {},
