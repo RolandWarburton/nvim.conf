@@ -1,3 +1,4 @@
+local M = {}
 -----------------------------
 -- SELECT LAST WINDOW FEATURE
 -----------------------------
@@ -33,7 +34,7 @@ end
 -- INSERT DATE FEATURE
 ----------------------
 
-function InsertDate(withTime)
+function M.InsertDate(withTime)
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   if (withTime) then
     vim.api.nvim_buf_set_text(
@@ -71,3 +72,5 @@ function CopyBufferToClipboard()
   content = content:gsub("'", "'\\''") -- Escape single quotes
   vim.fn.setreg('+', content, 'c')
 end
+
+return M

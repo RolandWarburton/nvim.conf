@@ -8,6 +8,7 @@
 
 require('util.helpers')
 require('keybindings.util')
+local userFunctions = require('keybindings.util')
 
 -- map leader key
 Map("n", ",", "<Nop>")
@@ -86,8 +87,14 @@ vim.api.nvim_create_user_command('ToggleSpaceVirtText', ':lua Toggle_listchar()<
 vim.api.nvim_create_user_command('CopyBufferToClipboard', ':lua CopyBufferToClipboard()<cr>', {})
 
 -- insert todays date
-vim.api.nvim_create_user_command('InsertDate', ':lua InsertDate(false)<cr>', {})
-vim.api.nvim_create_user_command('InsertDateTime', ':lua InsertDate(true)<cr>', {})
+vim.api.nvim_create_user_command('InsertDate',
+  function() userFunctions.InsertDate(false) end,
+  { desc = 'Insert current date (YYYY-MM-DD) at cursor' }
+)
+vim.api.nvim_create_user_command('InsertDateTime',
+  function() userFunctions.InsertDate(true) end,
+  { desc = 'Insert current date and time (YYYY-MM-DD HH:MM AM/PM) at cursor' }
+)
 
 -- Set the keybinding to go to the last window ID
 vim.keymap.set('n', '<Leader>w', ':lua Go_to_last_window()<cr>')
