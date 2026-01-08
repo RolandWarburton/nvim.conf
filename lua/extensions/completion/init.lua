@@ -1,4 +1,5 @@
-local cmpSettings = require('extensions.completion.cmp')
+local cmp = require('cmp')
+local cmpSettings = require('extensions.completion.cmpSettings')
 
 local M = {}
 
@@ -6,9 +7,8 @@ local M = {}
 -- see :help completeopt
 vim.o.completeopt = "menu,menuone,noselect"
 
-
-local ls = require("luasnip")
-ls.config.set_config {
+local luasnip = require("luasnip")
+luasnip.config.set_config {
   history = true,
 }
 
@@ -18,16 +18,15 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require('snippets.go')
 
 function M.setup()
-  local cmp = require('cmp')
   if cmp == nil then
-    vim.api.nvim_err_writeln('CMP failed to load')
+    vim.notify('CMP failed to load', vim.log.levels.ERROR, { title = "vim completion" })
     return
   end
 
   cmp.setup({
     snippet = {
       expand = function(args)
-        ls.lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     formatting = cmpSettings.Formatting,
