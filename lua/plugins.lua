@@ -69,6 +69,9 @@ require("lazy").setup({
   {
     'ray-x/lsp_signature.nvim',
     event = "InsertEnter",
+    -- for some reason this wont clone to the latest version causing issues
+    branch = "master",
+    commit = "7d3bb0a641f516f1c7fd2e47852580dadbd7a430"
   },
   {
     'L3MON4D3/LuaSnip',
