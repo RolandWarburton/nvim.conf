@@ -103,11 +103,27 @@ function M.setup()
   })
 end
 
+-- go to project root
+function M.open_nvim_tree_at_git_root()
+  local api = require("nvim-tree.api")
+  local gs = vim.fn.system("git rev-parse --show-toplevel 2> /dev/null"):gsub("\n", "")
+  if gs ~= "" then
+    api.tree.change_root(gs)
+  else
+    api.tree.change_root_to_parent()
+  end
+end
+
 function M.keybindings()
-  -- nvim tree find file
+  -- KEYBINDINGS
   Map('n', '<Leader>f', ':NvimTreeFindFile<cr>')
-  -- nvim tree toggle file tree
   Map('n', '<Leader>e', ':NvimTreeToggle<cr>')
+
+  -- COMMANDS
+  vim.api.nvim_create_user_command('NvimTreeGitRoot',
+    M.open_nvim_tree_at_git_root,
+    { desc = 'NvimTree: Change root to Git project root' }
+  )
 end
 
 return M
