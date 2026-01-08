@@ -1,5 +1,4 @@
 -- to install new TS language support
--- :TSUpdateSync
 -- :TSInstall typescript
 local M = {}
 
