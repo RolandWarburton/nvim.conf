@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("WinEnter", {
 })
 
 -- Define a function to go to the last window ID
-Go_to_last_window = function()
+M.go_to_last_window = function()
   if previous_window_id then
     pcall(vim.api.nvim_set_current_win, previous_window_id)
   end
@@ -34,19 +34,16 @@ end
 -- INSERT DATE FEATURE
 ----------------------
 
-function M.InsertDate(withTime)
+function M.insertDate(withTime)
+  ---@diagnostic disable-next-line: deprecated
+  local unpack = table.unpack or _G.unpack
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  if (withTime) then
-    vim.api.nvim_buf_set_text(
-      0, row - 1, col, row - 1, col,
-      { os.date('%Y-%m-%d %I:%M %p') }
-    )
-  else
-    vim.api.nvim_buf_set_text(
-      0, row - 1, col, row - 1, col,
-      { os.date('%Y-%m-%d') }
-    )
-  end
+  local fmt = withTime and '%Y-%m-%d %I:%M %p' or '%Y-%m-%d'
+  local date_string = tostring(os.date(fmt))
+  vim.api.nvim_buf_set_text(
+    0, row - 1, col, row - 1, col,
+    { date_string }
+  )
 end
 
 -------------------------------
@@ -54,7 +51,7 @@ end
 -------------------------------
 
 -- toggle the space virtual text
-function Toggle_listchar()
+function M.toggle_listchar()
   local listchars = vim.opt.listchars:get()
   if listchars.space == Listchars.space then
     vim.opt.listchars:append({ space = " " })
@@ -67,7 +64,7 @@ end
 -- COPY BUFFER TO CLIPBOARD FEATURE
 -----------------------------------
 
-function CopyBufferToClipboard()
+function M.copyBufferToClipboard()
   local content = table.concat(vim.fn.getline(1, '$'), "\n")
   content = content:gsub("'", "'\\''") -- Escape single quotes
   vim.fn.setreg('+', content, 'c')

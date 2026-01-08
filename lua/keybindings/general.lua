@@ -81,20 +81,20 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', ':lua Toggle_format_on_sa
 -- create a custom command to open the diagnostic window
 vim.api.nvim_create_user_command('Diagnostics', ':lua vim.diagnostic.setloclist()<cr>', {})
 
-vim.api.nvim_create_user_command('ToggleSpaceVirtText', ':lua Toggle_listchar()<cr>', {})
+vim.api.nvim_create_user_command('ToggleSpaceVirtText', function() userFunctions.toggle_listchar() end, {})
 
 -- copy buffer to clipboard
-vim.api.nvim_create_user_command('CopyBufferToClipboard', ':lua CopyBufferToClipboard()<cr>', {})
+vim.api.nvim_create_user_command('CopyBufferToClipboard', function() userFunctions.copyBufferToClipboard() end, {})
 
 -- insert todays date
 vim.api.nvim_create_user_command('InsertDate',
-  function() userFunctions.InsertDate(false) end,
+  function() userFunctions.insertDate(false) end,
   { desc = 'Insert current date (YYYY-MM-DD) at cursor' }
 )
 vim.api.nvim_create_user_command('InsertDateTime',
-  function() userFunctions.InsertDate(true) end,
+  function() userFunctions.insertDate(true) end,
   { desc = 'Insert current date and time (YYYY-MM-DD HH:MM AM/PM) at cursor' }
 )
 
 -- Set the keybinding to go to the last window ID
-vim.keymap.set('n', '<Leader>w', ':lua Go_to_last_window()<cr>')
+vim.keymap.set('n', '<Leader>w', function() userFunctions.go_to_last_window() end)
