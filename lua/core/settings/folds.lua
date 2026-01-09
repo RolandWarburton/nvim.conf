@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    -- set up folds to persist through restarts
+  -- set up folds to persist through restarts
   -- neovim will create a "view" for a buffer when closing it, then try to load it when you oad the same buffer
   -- https://github.com/AstroNvim/AstroNvim/blob/271c9c3f71c2e315cb16c31276dec81ddca6a5a6/lua/astronvim/autocmds.lua#L98-L120
   local autocmd = vim.api.nvim_create_autocmd
