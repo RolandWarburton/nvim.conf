@@ -9,6 +9,8 @@ local pattern = {
   'javascript',
   'lua',
   'markdown',
+  'markdown_inline',
+  'bash',
   'query',
   'typescript',
   'typescriptreact',
