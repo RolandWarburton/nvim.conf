@@ -4,8 +4,23 @@ local has_package_json = vim.fs.find('package.json', {
   stop = vim.env.HOME,
 })[1] ~= nil
 
+local function ensure_ts_ls_installed()
+  if vim.fn.executable('typescript-language-server') == 1 then return end
+  local ok, registry = pcall(require, 'mason-registry')
+  if not ok then
+    vim.notify("typescript-language-server not in PATH and Mason not available", vim.log.levels.WARN)
+    return
+  end
+  local pkg = registry.get_package('typescript-language-server')
+  if not pkg:is_installed() then
+    vim.notify("Installing typescript-language-server via Mason...", vim.log.levels.INFO)
+    pkg:install()
+  end
+end
+
 -- use ts_ls (typescript-language-server) if package.json exists
 if has_package_json then
+  ensure_ts_ls_installed()
   vim.lsp.config('ts_ls', {})
   vim.lsp.enable('ts_ls')
 elseif vim.fn.executable('deno') == 1 then
