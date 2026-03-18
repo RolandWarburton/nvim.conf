@@ -21,8 +21,12 @@ end
 -- use ts_ls (typescript-language-server) if package.json exists
 if has_package_json then
   ensure_ts_ls_installed()
-  vim.lsp.config('ts_ls', {})
-  vim.lsp.enable('ts_ls')
+  if vim.fn.executable('typescript-language-server') == 1 then
+    vim.lsp.config('ts_ls', {})
+    vim.lsp.enable('ts_ls')
+  else
+    vim.notify("typescript-language-server is missing from PATH", vim.log.levels.WARN)
+  end
 elseif vim.fn.executable('deno') == 1 then
   vim.lsp.config('denols', {})
   vim.lsp.enable('denols')
