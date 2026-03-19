@@ -55,7 +55,10 @@ M.window = {
 M.Formatting = {
   format = lspkind.cmp_format({
     mode = "symbol_text",
-    max_width = 50,
+      maxwidth = {
+        menu = 50, -- leading text (labelDetails)
+        abbr = 50, -- actual suggestion item
+      },
     symbol_map = {
       Text = "󰉿",
       Method = "󰆧",
