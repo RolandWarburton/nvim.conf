@@ -1,3 +1,18 @@
+local function ensure_clangd_installed()
+  if vim.fn.executable('clangd') == 1 then return end
+  local ok, registry = pcall(require, 'mason-registry')
+  if not ok then
+    vim.notify("clangd not in PATH and Mason not available", vim.log.levels.WARN)
+    return
+  end
+  local pkg = registry.get_package('clangd')
+  if not pkg:is_installed() then
+    vim.notify("Installing clangd via Mason...", vim.log.levels.INFO)
+    pkg:install()
+  end
+end
+
+ensure_clangd_installed()
 if vim.fn.executable('clangd') == 1 then
   vim.lsp.config('clangd', {})
   vim.lsp.enable('clangd')
