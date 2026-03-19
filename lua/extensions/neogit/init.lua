@@ -3,8 +3,9 @@ local M = {}
 function M.setup()
   local neogit = require 'neogit'
   neogit.setup {
-    intergrations = {
-      diffview = true
+    integrations = {
+      diffview = true,
+      telescope = true,
     }
   }
 end
