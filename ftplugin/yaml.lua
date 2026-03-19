@@ -28,6 +28,10 @@ if vim.fn.executable('yaml-language-server') == 1 then
             '**/ansible-configs/playbooks/*.yml',
             '**/ansible-configs/playbooks/*.yaml',
           },
+          ['https://json.schemastore.org/traefik-v3.json'] = {
+            'traefik.yml',
+            'traefik.yaml',
+          },
           ['https://json.schemastore.org/ansible-tasks.json'] = {
             '**/ansible-configs/tasks/*.yml',
             '**/ansible-configs/tasks/*.yaml',
