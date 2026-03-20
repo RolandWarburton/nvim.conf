@@ -4,7 +4,14 @@ require 'lsp.keybindings'
 vim.lsp.set_log_level("warn")
 
 local lsp_signature = require('lsp_signature')
-lsp_signature.setup({})
+lsp_signature.setup({
+  floating_window = true,
+  floating_window_above_cur_line = true,
+  hint_prefix = "🐼 ",
+  handler_opts = {
+    border = "rounded",
+  },
+})
 
 -- feed lsp into the completion engine
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
