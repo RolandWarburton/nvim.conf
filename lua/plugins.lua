@@ -111,9 +111,6 @@ require("lazy").setup({
     'lewis6991/gitsigns.nvim',
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-  },
-  {
     'numToStr/Comment.nvim',
   },
   {
