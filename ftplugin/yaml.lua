@@ -24,7 +24,7 @@ if vim.fn.executable('yaml-language-server') == 1 then
             'compose*.yml',
             'compose*.yaml',
           },
-          ['https://json.schemastore.org/ansible-playbook.json'] = {
+          ['https://raw.githubusercontent.com/ansible/schemas/main/f/ansible-playbook.json'] = {
             '**/ansible-configs/playbooks/*.yml',
             '**/ansible-configs/playbooks/*.yaml',
           },
@@ -32,7 +32,7 @@ if vim.fn.executable('yaml-language-server') == 1 then
             'traefik.yml',
             'traefik.yaml',
           },
-          ['https://json.schemastore.org/ansible-tasks.json'] = {
+          ['https://raw.githubusercontent.com/ansible/schemas/main/f/ansible-tasks.json'] = {
             '**/ansible-configs/tasks/*.yml',
             '**/ansible-configs/tasks/*.yaml',
             '**/ansible-configs/handlers/*.yml',
