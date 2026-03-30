@@ -1,7 +1,7 @@
 require 'lsp.keybindings'
 
 -- set the debug level for lsp
-vim.lsp.log.set_leveh("warn")
+vim.lsp.log.set_level("warn")
 
 local lsp_signature = require('lsp_signature')
 lsp_signature.setup({
