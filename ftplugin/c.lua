@@ -5,7 +5,8 @@ local function ensure_clangd_installed()
     vim.notify("clangd not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('clangd')
+  local ok_pkg, pkg = pcall(registry.get_package, 'clangd')
+  if not ok_pkg then return end
   if not pkg:is_installed() then
     vim.notify("Installing clangd via Mason...", vim.log.levels.INFO)
     pkg:install()

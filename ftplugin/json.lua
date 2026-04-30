@@ -5,7 +5,8 @@ local function ensure_jsonls_installed()
     vim.notify("vscode-json-language-server not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('json-lsp')
+  local ok_pkg, pkg = pcall(registry.get_package, 'json-lsp')
+  if not ok_pkg then return end
   if not pkg:is_installed() then
     vim.notify("Installing json-lsp via Mason...", vim.log.levels.INFO)
     pkg:install()

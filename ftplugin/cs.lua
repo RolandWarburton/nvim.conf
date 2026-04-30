@@ -5,7 +5,8 @@ local function ensure_csharp_ls_installed()
     vim.notify("csharp-ls not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('csharp-language-server')
+  local ok_pkg, pkg = pcall(registry.get_package, 'csharp-language-server')
+  if not ok_pkg then return end
   if not pkg:is_installed() then
     vim.notify("Installing csharp-language-server via Mason...", vim.log.levels.INFO)
     pkg:install()

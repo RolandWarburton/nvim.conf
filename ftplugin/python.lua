@@ -5,7 +5,8 @@ local function ensure_pyright_installed()
     vim.notify("pyright not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('pyright')
+  local ok_pkg, pkg = pcall(registry.get_package, 'pyright')
+  if not ok_pkg then return end
   if not pkg:is_installed() then
     vim.notify("Installing pyright via Mason...", vim.log.levels.INFO)
     pkg:install()

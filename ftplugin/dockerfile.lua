@@ -5,7 +5,8 @@ local function ensure_dockerls_installed()
     vim.notify("docker-langserver not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('dockerfile-language-server')
+  local ok_pkg, pkg = pcall(registry.get_package, 'dockerfile-language-server')
+  if not ok_pkg then return end
   if not pkg:is_installed() then
     vim.notify("Installing dockerfile-language-server via Mason...", vim.log.levels.INFO)
     pkg:install()
