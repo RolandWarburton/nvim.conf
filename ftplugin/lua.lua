@@ -5,7 +5,11 @@ local function ensure_lua_ls_installed()
     vim.notify("lua-language-server not in PATH and Mason not available", vim.log.levels.WARN)
     return
   end
-  local pkg = registry.get_package('lua-language-server')
+  local ok_pkg, pkg = pcall(registry.get_package, 'lua-language-server')
+  if not ok_pkg then
+    vim.notify("lua-language-server not found in Mason registry", vim.log.levels.WARN)
+    return
+  end
   if not pkg:is_installed() then
     vim.notify("Installing lua-language-server via Mason...", vim.log.levels.INFO)
     pkg:install()
