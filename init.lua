@@ -1,3 +1,4 @@
+vim.loader.enable()
 local yaml = require('lyaml')
 
 local home = os.getenv("HOME")
