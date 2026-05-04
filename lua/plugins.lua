@@ -131,7 +131,7 @@ require("lazy").setup({
   {
     'hiphish/rainbow-delimiters.nvim',
   },
-  { 'norcalli/nvim-colorizer.lua' },
+  { 'catgoose/nvim-colorizer.lua' },
   {
     'mfussenegger/nvim-dap',
     dependencies = 'rolandwarburton/hydra.nvim',
