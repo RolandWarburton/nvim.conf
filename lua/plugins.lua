@@ -115,7 +115,7 @@ require("lazy").setup({
     'jbyuki/venn.nvim',
   },
   {
-    'anuvyklack/hydra.nvim',
+    'rolandwarburton/hydra.nvim',
   },
   {
     'Djancyp/better-comments.nvim',
