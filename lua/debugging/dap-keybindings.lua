@@ -1,5 +1,5 @@
 local function setup()
-  local Hydra = require('hydra')
+  local Hydra = require('extensions.hydra')
   Hydra({
     name = "Debugging",
     hint = [[
