@@ -18,5 +18,7 @@ require('extensions.colorizer').setup()
 if _G.neovim_config.extensions.enable_tiny_go then
   require('extensions.tinygo').setup()
 end
--- require('extensions.hydra').setup() -- disabled due to bug see issue 60
+-- re-enabled via fork which fixes the issue
+-- see anuvyklack/hydra.nvim #60
+require('extensions.hydra').setup()
 -- require('extensions.maximize').setup()
