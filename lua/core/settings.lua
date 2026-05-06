@@ -3,4 +3,5 @@ require('core.settings.tabline').setup()
 require('core.settings.editor').setup()
 require('core.settings.statusline').setup()
 require('core.settings.listchars').setup()
+require('core.settings.filetypes').setup()
 -- require('core.settings.folds').setup() -- this breaks and sets the :pwd to /

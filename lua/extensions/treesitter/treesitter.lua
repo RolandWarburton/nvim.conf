@@ -3,6 +3,7 @@ local M = {}
 local pattern = {
   'c',
   'elixir',
+  'caddy',
   'heex',
   'html',
   'java',
