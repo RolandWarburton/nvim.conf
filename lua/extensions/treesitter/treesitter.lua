@@ -19,7 +19,8 @@ local pattern = {
   'vimdoc',
   'yaml',
   'go',
-  'python'
+  'python',
+  'ini'
 }
 
 local function ts_start(args)
