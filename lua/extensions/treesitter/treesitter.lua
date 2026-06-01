@@ -20,7 +20,8 @@ local pattern = {
   'yaml',
   'go',
   'python',
-  'ini'
+  'ini',
+  'dart'
 }
 
 local function ts_start(args)
