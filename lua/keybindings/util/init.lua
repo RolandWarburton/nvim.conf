@@ -65,8 +65,8 @@ end
 -----------------------------------
 
 function M.copyBufferToClipboard()
-  local content = table.concat(vim.fn.getline(1, '$'), "\n")
-  content = content:gsub("'", "'\\''") -- Escape single quotes
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  local content = table.concat(lines, "\n")
   vim.fn.setreg('+', content, 'c')
 end
 
