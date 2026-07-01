@@ -33,6 +33,10 @@ if vim.fn.executable('yaml-language-server') == 1 then
             'traefik.yml',
             'traefik.yaml',
           },
+          ['https://json.schemastore.org/github-workflow.json'] = {
+            '**/.github/workflows/*.yml',
+            '**/.github/workflows/*.yaml',
+          },
           ['https://raw.githubusercontent.com/ansible/schemas/main/f/ansible-tasks.json'] = {
             '**/ansible-configs/tasks/*.yml',
             '**/ansible-configs/tasks/*.yaml',
