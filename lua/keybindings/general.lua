@@ -9,6 +9,7 @@
 require('util.helpers')
 require('keybindings.util')
 local userFunctions = require('keybindings.util')
+local banner = require('keybindings.util.banner')
 
 -- map leader key
 Map("n", ",", "<Nop>")
@@ -98,3 +99,5 @@ vim.api.nvim_create_user_command('InsertDateTime',
 
 -- Set the keybinding to go to the last window ID
 vim.keymap.set('n', '<Leader>w', function() userFunctions.go_to_last_window() end)
+
+vim.api.nvim_create_user_command('Banner', function() banner.insert_banner() end, {})
