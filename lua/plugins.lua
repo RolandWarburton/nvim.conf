@@ -38,7 +38,7 @@ require("lazy").setup({
     'nvim-tree/nvim-web-devicons',
   },
   {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
   },
   {
     'nvim-telescope/telescope.nvim',
