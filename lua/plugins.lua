@@ -1,11 +1,11 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local fs_stat = (vim.uv or vim.loop).fs_stat(lazypath)
+local fs_stat = vim.uv.fs_stat(lazypath)
 
 -- check if lazy directory is empty
 local function is_directory_empty(dir)
-  local handle = vim.loop.fs_scandir(dir)
+  local handle = vim.uv.fs_scandir(dir)
   if not handle then return true end
-  return vim.loop.fs_scandir_next(handle) == nil
+  return vim.uv.fs_scandir_next(handle) == nil
 end
 
 -- check if lazy path exists and is not empty
